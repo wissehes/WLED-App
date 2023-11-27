@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var addDevicesShowing = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationSplitView {
+            List {
+                Button("Add devices") {
+                    addDevicesShowing.toggle()
+                }
+            }.sheet(isPresented: $addDevicesShowing, content: {
+                DiscoverDevicesSheet()
+            })
+        } detail: {
+            // Detail view
+            ContentUnavailableView("Select an item", systemImage: "network")
         }
-        .padding()
+
     }
 }
 
