@@ -10,7 +10,7 @@ import Network
 
 @Observable
 final class DiscoveryService {
-    let browser: NWBrowser
+    private let browser: NWBrowser
     private let bonjour: NWBrowser.Descriptor
     
     var devices: [Device] = []
@@ -80,15 +80,20 @@ final class DiscoveryService {
         
     }
     
+    /// Connection update handler
     private func itemConnectionUpdatedHandler(_ state: NWConnection.State, name: String, connection: NWConnection) {
         print("State update for \(name)")
+        // Make sure all values and cases are correct
         guard case .ready = state else { return }
         guard let endpoint = connection.currentPath?.remoteEndpoint else { return }
         guard case .hostPort(let host, let port) = endpoint else { return }
+        
+        // Format address
         let address = String(host.debugDescription.split(separator: "%")[0])
         
         print("[NWBRowser] Connected to \(name) (\(address):\(port))")
 
+        // Add the device
         let newDevice = Device(address: address, port: "\(port)", name: name)
         self.devices.append(newDevice)
     }
