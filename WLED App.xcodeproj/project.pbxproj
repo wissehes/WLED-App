@@ -11,6 +11,9 @@
 		897AB7B82B15302200E3DC8F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB7B72B15302200E3DC8F /* ContentView.swift */; };
 		897AB7BA2B15302500E3DC8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 897AB7B92B15302500E3DC8F /* Assets.xcassets */; };
 		897AB7BD2B15302500E3DC8F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 897AB7BC2B15302500E3DC8F /* Preview Assets.xcassets */; };
+		897AB7C72B15322300E3DC8F /* DiscoverDevicesSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB7C62B15322300E3DC8F /* DiscoverDevicesSheet.swift */; };
+		897AB7CA2B15337100E3DC8F /* DiscoveryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB7C92B15337100E3DC8F /* DiscoveryService.swift */; };
+		897AB7CC2B153CA000E3DC8F /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB7CB2B153CA000E3DC8F /* Device.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,10 @@
 		897AB7B72B15302200E3DC8F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		897AB7B92B15302500E3DC8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		897AB7BC2B15302500E3DC8F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		897AB7C62B15322300E3DC8F /* DiscoverDevicesSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverDevicesSheet.swift; sourceTree = "<group>"; };
+		897AB7C82B15331900E3DC8F /* WLED-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WLED-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		897AB7C92B15337100E3DC8F /* DiscoveryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryService.swift; sourceTree = "<group>"; };
+		897AB7CB2B153CA000E3DC8F /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +58,10 @@
 		897AB7B42B15302200E3DC8F /* WLED App */ = {
 			isa = PBXGroup;
 			children = (
+				897AB7C82B15331900E3DC8F /* WLED-App-Info.plist */,
+				897AB7C52B1531B600E3DC8F /* Services */,
+				897AB7C42B15318E00E3DC8F /* Views */,
+				897AB7C32B15318A00E3DC8F /* Models */,
 				897AB7B52B15302200E3DC8F /* WLED_AppApp.swift */,
 				897AB7B72B15302200E3DC8F /* ContentView.swift */,
 				897AB7B92B15302500E3DC8F /* Assets.xcassets */,
@@ -65,6 +76,30 @@
 				897AB7BC2B15302500E3DC8F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		897AB7C32B15318A00E3DC8F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				897AB7CB2B153CA000E3DC8F /* Device.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		897AB7C42B15318E00E3DC8F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				897AB7C62B15322300E3DC8F /* DiscoverDevicesSheet.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		897AB7C52B1531B600E3DC8F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				897AB7C92B15337100E3DC8F /* DiscoveryService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +172,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				897AB7C72B15322300E3DC8F /* DiscoverDevicesSheet.swift in Sources */,
 				897AB7B82B15302200E3DC8F /* ContentView.swift in Sources */,
+				897AB7CA2B15337100E3DC8F /* DiscoveryService.swift in Sources */,
 				897AB7B62B15302200E3DC8F /* WLED_AppApp.swift in Sources */,
+				897AB7CC2B153CA000E3DC8F /* Device.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +313,8 @@
 				DEVELOPMENT_TEAM = U3CH3X8GK4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WLED-App-Info.plist";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "WLED App uses this to communicate with your WLED devices.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +344,8 @@
 				DEVELOPMENT_TEAM = U3CH3X8GK4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WLED-App-Info.plist";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "WLED App uses this to communicate with your WLED devices.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
