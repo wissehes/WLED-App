@@ -16,6 +16,7 @@
 		897AB7CC2B153CA000E3DC8F /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB7CB2B153CA000E3DC8F /* Device.swift */; };
 		89BEF5D02B1626EC00C76A23 /* WLED.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5CF2B1626EC00C76A23 /* WLED.swift */; };
 		89BEF5D22B162CCB00C76A23 /* WLEDState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5D12B162CCB00C76A23 /* WLEDState.swift */; };
+		89BEF5D52B167DE500C76A23 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 89BEF5D42B167DE500C76A23 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89BEF5D52B167DE500C76A23 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +128,9 @@
 			dependencies = (
 			);
 			name = "WLED App";
+			packageProductDependencies = (
+				89BEF5D42B167DE500C76A23 /* Alamofire */,
+			);
 			productName = "WLED App";
 			productReference = 897AB7B22B15302200E3DC8F /* WLED App.app */;
 			productType = "com.apple.product-type.application";
@@ -154,6 +159,9 @@
 				Base,
 			);
 			mainGroup = 897AB7A92B15302200E3DC8F;
+			packageReferences = (
+				89BEF5D32B167DE500C76A23 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 897AB7B32B15302200E3DC8F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -398,6 +406,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		89BEF5D32B167DE500C76A23 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		89BEF5D42B167DE500C76A23 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89BEF5D32B167DE500C76A23 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 897AB7AA2B15302200E3DC8F /* Project object */;
 }
