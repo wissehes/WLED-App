@@ -12,14 +12,17 @@ struct ContentView: View {
     
     @Query private var devices: [Device]
     
+    @State private var selectedDevice: Device?
     @State private var addDevicesShowing = false
     @State private var isOn = false
     
     var body: some View {
+        // TODO: Seperate these views into their own file
         NavigationSplitView {
-            List {
+            List(selection: $selectedDevice) {
                 ForEach(devices) { device in
                     DeviceItemView(device: device)
+                        .tag(device)
                 }
             }.navigationTitle("Devices")
                 .toolbar {
@@ -38,8 +41,11 @@ struct ContentView: View {
                     DiscoverDevicesSheet()
                 })
         } detail: {
-            // Detail view
-            ContentUnavailableView("Select an item", systemImage: "network")
+            if let device = selectedDevice {
+                DeviceWebView(device: device)
+            } else {
+                ContentUnavailableView("Select an item", systemImage: "network")
+            }
         }
         
     }

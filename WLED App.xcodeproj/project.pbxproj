@@ -18,6 +18,8 @@
 		89BEF5D22B162CCB00C76A23 /* WLEDState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5D12B162CCB00C76A23 /* WLEDState.swift */; };
 		89BEF5D52B167DE500C76A23 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 89BEF5D42B167DE500C76A23 /* Alamofire */; };
 		89BEF5D72B16858A00C76A23 /* DeviceItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5D62B16858A00C76A23 /* DeviceItemView.swift */; };
+		89BEF5D92B16951000C76A23 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5D82B16951000C76A23 /* WebView.swift */; };
+		89BEF5DC2B16961A00C76A23 /* DeviceWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5DB2B16961A00C76A23 /* DeviceWebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		89BEF5CF2B1626EC00C76A23 /* WLED.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLED.swift; sourceTree = "<group>"; };
 		89BEF5D12B162CCB00C76A23 /* WLEDState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLEDState.swift; sourceTree = "<group>"; };
 		89BEF5D62B16858A00C76A23 /* DeviceItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceItemView.swift; sourceTree = "<group>"; };
+		89BEF5D82B16951000C76A23 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		89BEF5DB2B16961A00C76A23 /* DeviceWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceWebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +104,9 @@
 		897AB7C42B15318E00E3DC8F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				89BEF5DA2B16960A00C76A23 /* Device */,
 				897AB7C62B15322300E3DC8F /* DiscoverDevicesSheet.swift */,
-				89BEF5D62B16858A00C76A23 /* DeviceItemView.swift */,
+				89BEF5D82B16951000C76A23 /* WebView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -113,6 +118,15 @@
 				89BEF5CF2B1626EC00C76A23 /* WLED.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		89BEF5DA2B16960A00C76A23 /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				89BEF5D62B16858A00C76A23 /* DeviceItemView.swift */,
+				89BEF5DB2B16961A00C76A23 /* DeviceWebView.swift */,
+			);
+			path = Device;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,8 +211,10 @@
 				897AB7CA2B15337100E3DC8F /* DiscoveryService.swift in Sources */,
 				89BEF5D22B162CCB00C76A23 /* WLEDState.swift in Sources */,
 				897AB7B62B15302200E3DC8F /* WLED_AppApp.swift in Sources */,
+				89BEF5D92B16951000C76A23 /* WebView.swift in Sources */,
 				897AB7CC2B153CA000E3DC8F /* Device.swift in Sources */,
 				89BEF5D02B1626EC00C76A23 /* WLED.swift in Sources */,
+				89BEF5DC2B16961A00C76A23 /* DeviceWebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
