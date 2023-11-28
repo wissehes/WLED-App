@@ -14,6 +14,8 @@
 		897AB7C72B15322300E3DC8F /* DiscoverDevicesSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB7C62B15322300E3DC8F /* DiscoverDevicesSheet.swift */; };
 		897AB7CA2B15337100E3DC8F /* DiscoveryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB7C92B15337100E3DC8F /* DiscoveryService.swift */; };
 		897AB7CC2B153CA000E3DC8F /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB7CB2B153CA000E3DC8F /* Device.swift */; };
+		89BEF5D02B1626EC00C76A23 /* WLED.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5CF2B1626EC00C76A23 /* WLED.swift */; };
+		89BEF5D22B162CCB00C76A23 /* WLEDState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5D12B162CCB00C76A23 /* WLEDState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,9 @@
 		897AB7C82B15331900E3DC8F /* WLED-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WLED-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		897AB7C92B15337100E3DC8F /* DiscoveryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryService.swift; sourceTree = "<group>"; };
 		897AB7CB2B153CA000E3DC8F /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		89BEF5CE2B1625BC00C76A23 /* WLED App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WLED App.entitlements"; sourceTree = "<group>"; };
+		89BEF5CF2B1626EC00C76A23 /* WLED.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLED.swift; sourceTree = "<group>"; };
+		89BEF5D12B162CCB00C76A23 /* WLEDState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLEDState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +63,7 @@
 		897AB7B42B15302200E3DC8F /* WLED App */ = {
 			isa = PBXGroup;
 			children = (
+				89BEF5CE2B1625BC00C76A23 /* WLED App.entitlements */,
 				897AB7C82B15331900E3DC8F /* WLED-App-Info.plist */,
 				897AB7C52B1531B600E3DC8F /* Services */,
 				897AB7C42B15318E00E3DC8F /* Views */,
@@ -82,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				897AB7CB2B153CA000E3DC8F /* Device.swift */,
+				89BEF5D12B162CCB00C76A23 /* WLEDState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -98,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				897AB7C92B15337100E3DC8F /* DiscoveryService.swift */,
+				89BEF5CF2B1626EC00C76A23 /* WLED.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -175,8 +183,10 @@
 				897AB7C72B15322300E3DC8F /* DiscoverDevicesSheet.swift in Sources */,
 				897AB7B82B15302200E3DC8F /* ContentView.swift in Sources */,
 				897AB7CA2B15337100E3DC8F /* DiscoveryService.swift in Sources */,
+				89BEF5D22B162CCB00C76A23 /* WLEDState.swift in Sources */,
 				897AB7B62B15302200E3DC8F /* WLED_AppApp.swift in Sources */,
 				897AB7CC2B153CA000E3DC8F /* Device.swift in Sources */,
+				89BEF5D02B1626EC00C76A23 /* WLED.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +317,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "WLED App/WLED App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WLED App/Preview Content\"";
@@ -325,7 +336,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "nl.wissehes.WLED-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.wissehes.wled-swift-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -338,6 +349,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "WLED App/WLED App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WLED App/Preview Content\"";
@@ -356,7 +368,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "nl.wissehes.WLED-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.wissehes.wled-swift-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
