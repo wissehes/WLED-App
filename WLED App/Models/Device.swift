@@ -27,6 +27,7 @@ import SwiftData
     /// Brightness level from 1 - 255
     var brightness: Float
     
+    @MainActor
     func update() async {
         guard let device = try? await WLED.shared.getInfo(address: self.address, port: self.port) else {
             self.isOnline = false
@@ -36,6 +37,11 @@ import SwiftData
         self.isOnline = true
         self.isPoweredOn = device.state.on
         self.brightness = device.state.brightness
+    }
+    
+    @MainActor
+    func setOnOff(state: Bool) async {
+        await WLED.shared.setState(state, address: self.address, port: self.port)
     }
     
     /// Default initializer
