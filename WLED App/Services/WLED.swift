@@ -19,4 +19,18 @@ class WLED {
         
         return data
     }
+    
+    /// Set the on/off state of the device
+    func setState(_ state: Bool, address: String, port: String) async {
+        let body = [
+            "on": state
+        ]
+        
+        guard let url = URL(string: "http://\(address):\(port)/json") else { return }
+        guard var request = try? URLRequest(url: url, method: .post) else { return }
+        request.httpBody = try? JSONEncoder().encode(body)
+        request.headers = [ .contentType("application/json") ]
+        
+        let _ = try? await URLSession.shared.data(for: request)
+    }
 }
