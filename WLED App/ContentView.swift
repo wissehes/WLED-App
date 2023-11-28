@@ -25,6 +25,7 @@ struct ContentView: View {
                         .tag(device)
                 }
             }.navigationTitle("Devices")
+                .animation(.easeInOut, value: devices)
                 .toolbar {
                     ToolbarItem(placement: .primaryAction) {
                         Button("Add devices", systemImage: "plus") {
