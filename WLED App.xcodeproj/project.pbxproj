@@ -17,6 +17,7 @@
 		89BEF5D02B1626EC00C76A23 /* WLED.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5CF2B1626EC00C76A23 /* WLED.swift */; };
 		89BEF5D22B162CCB00C76A23 /* WLEDState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5D12B162CCB00C76A23 /* WLEDState.swift */; };
 		89BEF5D52B167DE500C76A23 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 89BEF5D42B167DE500C76A23 /* Alamofire */; };
+		89BEF5D72B16858A00C76A23 /* DeviceItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5D62B16858A00C76A23 /* DeviceItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		89BEF5CE2B1625BC00C76A23 /* WLED App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WLED App.entitlements"; sourceTree = "<group>"; };
 		89BEF5CF2B1626EC00C76A23 /* WLED.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLED.swift; sourceTree = "<group>"; };
 		89BEF5D12B162CCB00C76A23 /* WLEDState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLEDState.swift; sourceTree = "<group>"; };
+		89BEF5D62B16858A00C76A23 /* DeviceItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				897AB7C62B15322300E3DC8F /* DiscoverDevicesSheet.swift */,
+				89BEF5D62B16858A00C76A23 /* DeviceItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				897AB7C72B15322300E3DC8F /* DiscoverDevicesSheet.swift in Sources */,
+				89BEF5D72B16858A00C76A23 /* DeviceItemView.swift in Sources */,
 				897AB7B82B15302200E3DC8F /* ContentView.swift in Sources */,
 				897AB7CA2B15337100E3DC8F /* DiscoveryService.swift in Sources */,
 				89BEF5D22B162CCB00C76A23 /* WLEDState.swift in Sources */,
