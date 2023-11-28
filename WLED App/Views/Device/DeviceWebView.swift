@@ -10,12 +10,8 @@ import SwiftUI
 struct DeviceWebView: View {
     var device: Device
     
-    var url: URL {
-        URL(string: "http://\(device.address):\(device.port)")!
-    }
-    
     var body: some View {
-        WebView(url: url)
+        WebView(url: device.url)
             .navigationTitle(device.name)
             .navigationBarTitleDisplayMode(.inline)
     }

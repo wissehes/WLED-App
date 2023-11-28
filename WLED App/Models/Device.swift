@@ -27,6 +27,8 @@ import SwiftData
     /// Brightness level from 1 - 255
     var brightness: Float
     
+    // MARK: Methods
+    
     @MainActor
     func update() async {
         guard let device = try? await WLED.shared.getInfo(address: self.address, port: self.port) else {
@@ -42,6 +44,12 @@ import SwiftData
     @MainActor
     func setOnOff(state: Bool) async {
         await WLED.shared.setState(state, address: self.address, port: self.port)
+    }
+    
+    // MARK: Computed values
+    
+    var url: URL {
+        URL(string: "http://\(address):\(port)")!
     }
     
     /// Default initializer
