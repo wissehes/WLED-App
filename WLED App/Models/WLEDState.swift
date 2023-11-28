@@ -23,12 +23,32 @@ struct WLEDState: Codable {
     let brightness: Float
     let presetId: Int
     let playlistId: Int
+    let segments: [Segment]
+    
+    struct Segment: Codable {
+        /// Active color scheme in this palette
+        let colors: [[Float]]
+        
+        var color: (Float, Float, Float)? {
+            guard let colors = colors.first else { return nil }
+            let red = colors[0]
+            let green = colors[1]
+            let blue = colors[2]
+            
+            return (red, green, blue)
+        }
+        
+        enum CodingKeys: String, CodingKey {
+            case colors = "col"
+        }
+    }
     
     enum CodingKeys: String, CodingKey {
         case on         = "on"
         case brightness = "bri"
         case presetId   = "ps"
         case playlistId = "pl"
+        case segments   = "seg"
     }
 }
 
