@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct DeviceItemView: View {
-    @State var device: Device
+    @Environment(\.modelContext) private var modelContext
+    
+    @State private var device: Device
 
     init(device: Device) {
         self._device = .init(wrappedValue: device)
@@ -26,8 +28,20 @@ struct DeviceItemView: View {
             
             Toggle("Is on", isOn: $device.isPoweredOn)
                 .labelsHidden()
-        }.onChange(of: device.isPoweredOn) {
+        }.contextMenu {
+            deleteButton
+        }
+        .swipeActions {
+            deleteButton
+        }
+        .onChange(of: device.isPoweredOn) {
             Task { await device.setOnOff(state: device.isPoweredOn) }
+        }
+    }
+    
+    var deleteButton: some View {
+        Button("Delete", systemImage: "trash", role: .destructive) {
+            modelContext.delete(device)
         }
     }
 }
