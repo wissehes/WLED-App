@@ -92,9 +92,15 @@ final class DiscoveryService {
         let address = String(host.debugDescription.split(separator: "%")[0])
         
         print("[NWBRowser] Connected to \(name) (\(address):\(port))")
-
-        // Add the device
-        let newDevice = Device(address: address, port: "\(port)", name: name)
-        self.devices.append(newDevice)
+        
+        // Fetch the device's state and add the device
+        // to the list of discovered devices
+        Task {
+            guard let wled = try? await WLED.shared.getInfo(address: address, port: "\(port)") else { return }
+         
+            // Add the device
+            let newDevice = Device(wled: wled, port: "\(port)")
+            self.devices.append(newDevice)
+        }
     }
 }
