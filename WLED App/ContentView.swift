@@ -33,11 +33,8 @@ struct ContentView: View {
                         }
                     }
                 }
-                .task {
-                    for device in devices {
-                        await device.update()
-                    }
-                }
+                .task { await refreshAll() }
+                .refreshable { await refreshAll() }
                 .sheet(isPresented: $addDevicesShowing, content: {
                     DiscoverDevicesSheet()
                 })
@@ -48,7 +45,12 @@ struct ContentView: View {
                 ContentUnavailableView("Select an item", systemImage: "network")
             }
         }
-        
+    }
+    
+    private func refreshAll() async {
+        for device in devices {
+            await device.update()
+        }
     }
 }
 
