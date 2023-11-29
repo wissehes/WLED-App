@@ -21,6 +21,7 @@
 		89BEF5D72B16858A00C76A23 /* DeviceItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5D62B16858A00C76A23 /* DeviceItemView.swift */; };
 		89BEF5D92B16951000C76A23 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5D82B16951000C76A23 /* WebView.swift */; };
 		89BEF5DC2B16961A00C76A23 /* DeviceWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5DB2B16961A00C76A23 /* DeviceWebView.swift */; };
+		89EBF3822B17D48000F92C92 /* AddDeviceForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EBF3812B17D48000F92C92 /* AddDeviceForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		89BEF5D62B16858A00C76A23 /* DeviceItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceItemView.swift; sourceTree = "<group>"; };
 		89BEF5D82B16951000C76A23 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		89BEF5DB2B16961A00C76A23 /* DeviceWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceWebView.swift; sourceTree = "<group>"; };
+		89EBF3812B17D48000F92C92 /* AddDeviceForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeviceForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				89BEF5DA2B16960A00C76A23 /* Device */,
 				897AB7C62B15322300E3DC8F /* DiscoverDevicesSheet.swift */,
 				89BEF5D82B16951000C76A23 /* WebView.swift */,
+				89EBF3812B17D48000F92C92 /* AddDeviceForm.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				89BEF5D22B162CCB00C76A23 /* WLEDState.swift in Sources */,
 				897AB7B62B15302200E3DC8F /* WLED_AppApp.swift in Sources */,
 				89BEF5D92B16951000C76A23 /* WebView.swift in Sources */,
+				89EBF3822B17D48000F92C92 /* AddDeviceForm.swift in Sources */,
 				897AB7CC2B153CA000E3DC8F /* Device.swift in Sources */,
 				89BEF5D02B1626EC00C76A23 /* WLED.swift in Sources */,
 				89BEF5DC2B16961A00C76A23 /* DeviceWebView.swift in Sources */,
