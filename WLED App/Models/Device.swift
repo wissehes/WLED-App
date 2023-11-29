@@ -58,7 +58,8 @@ import SwiftUI
     
     var actualColor: Color? {
         guard let color else { return nil }
-        guard let uiColor = UIColor(hex: color) else { return nil }
+        let uiColor = UIColor(hex: color)
+        
         return Color(uiColor: uiColor)
     }
     

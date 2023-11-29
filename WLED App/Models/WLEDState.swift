@@ -32,9 +32,9 @@ struct WLEDState: Codable {
         
         var color: UIColor? {
             guard let colors = colors.first else { return nil }
-            let red = CGFloat(colors[0])
-            let green = CGFloat(colors[1])
-            let blue = CGFloat(colors[2])
+            let red = CGFloat(colors[0] / 255)
+            let green = CGFloat(colors[1] / 255)
+            let blue = CGFloat(colors[2] / 255)
             
             return UIColor(red: red, green: green, blue: blue, alpha: 1)
         }
