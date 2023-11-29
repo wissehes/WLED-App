@@ -8,6 +8,7 @@
 import Foundation
 import SwiftData
 import UIKit
+import SwiftUI
 
 @Model class Device {
     // MARK: Device info
@@ -55,9 +56,10 @@ import UIKit
         URL(string: "http://\(address):\(port)")!
     }
     
-    var actualColor: UIColor? {
+    var actualColor: Color? {
         guard let color else { return nil }
-        return UIColor(hex: color)
+        guard let uiColor = UIColor(hex: color) else { return nil }
+        return Color(uiColor: uiColor)
     }
     
     /// Default initializer
