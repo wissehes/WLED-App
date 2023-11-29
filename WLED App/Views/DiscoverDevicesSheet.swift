@@ -27,18 +27,20 @@ struct DiscoverDevicesSheet: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(actualDevices) { item in
-                    HStack(alignment: .center) {
-                        VStack(alignment: .leading) {
-                            Text(item.name)
-                                .bold()
-                            Text(item.address)
-                                .font(.subheadline)
-                        }
-                        
-                        Spacer()
-                        
-                        Button("Add") { addDevice(item) }
+                
+                Section("Manually add a device") {
+                    AddDeviceForm()
+                }
+                
+                Section("Discovered devices") {
+                    ForEach(actualDevices, content: deviceItem)
+                    
+                    if actualDevices.isEmpty {
+                        ContentUnavailableView(
+                            "No devices found",
+                            systemImage: "magnifyingglass",
+                            description: Text("Devices that you've already added won't appear here.")
+                        ).padding()
                     }
                 }
             }.navigationTitle("Discover")
@@ -51,12 +53,28 @@ struct DiscoverDevicesSheet: View {
                         }
                     }
                     ToolbarItem(placement: .primaryAction) {
-                        ProgressView()
+                        Image(systemName: "magnifyingglass")
+                            .symbolEffect(.pulse)
                     }
                 }
                 .onAppear {
                     self.discovery.start()
                 }
+        }
+    }
+    
+    private func deviceItem(_ item: Device) -> some View {
+        HStack(alignment: .center) {
+            VStack(alignment: .leading) {
+                Text(item.name)
+                    .bold()
+                Text(item.address)
+                    .font(.subheadline)
+            }
+            
+            Spacer()
+            
+            Button("Add") { addDevice(item) }
         }
     }
     
