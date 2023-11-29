@@ -21,6 +21,7 @@ struct DeviceItemView: View {
             VStack(alignment: .leading) {
                 Text(device.name + (device.isOnline ? "" : " (Offline)"))
                     .font(.headline)
+                    .foregroundStyle(device.actualColor ?? .white)
                 Text(device.address)
             }
             
@@ -28,7 +29,8 @@ struct DeviceItemView: View {
             
             Toggle("Is on", isOn: $device.isPoweredOn)
                 .labelsHidden()
-        }.contextMenu {
+        }.tint(device.actualColor)
+        .contextMenu {
             deleteButton
         }
         .swipeActions {
