@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		896D073F2B177E4F006C500F /* Color+HexValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896D073E2B177E4F006C500F /* Color+HexValues.swift */; };
 		897AB7B62B15302200E3DC8F /* WLED_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB7B52B15302200E3DC8F /* WLED_AppApp.swift */; };
 		897AB7B82B15302200E3DC8F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB7B72B15302200E3DC8F /* ContentView.swift */; };
 		897AB7BA2B15302500E3DC8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 897AB7B92B15302500E3DC8F /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		896D073E2B177E4F006C500F /* Color+HexValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+HexValues.swift"; sourceTree = "<group>"; };
 		897AB7B22B15302200E3DC8F /* WLED App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WLED App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		897AB7B52B15302200E3DC8F /* WLED_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLED_AppApp.swift; sourceTree = "<group>"; };
 		897AB7B72B15302200E3DC8F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +54,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		896D073D2B177D10006C500F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				896D073E2B177E4F006C500F /* Color+HexValues.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		897AB7A92B15302200E3DC8F = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +86,7 @@
 				897AB7C52B1531B600E3DC8F /* Services */,
 				897AB7C42B15318E00E3DC8F /* Views */,
 				897AB7C32B15318A00E3DC8F /* Models */,
+				896D073D2B177D10006C500F /* Extensions */,
 				897AB7B52B15302200E3DC8F /* WLED_AppApp.swift */,
 				897AB7B72B15302200E3DC8F /* ContentView.swift */,
 				897AB7B92B15302500E3DC8F /* Assets.xcassets */,
@@ -215,6 +226,7 @@
 				897AB7CC2B153CA000E3DC8F /* Device.swift in Sources */,
 				89BEF5D02B1626EC00C76A23 /* WLED.swift in Sources */,
 				89BEF5DC2B16961A00C76A23 /* DeviceWebView.swift in Sources */,
+				896D073F2B177E4F006C500F /* Color+HexValues.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
