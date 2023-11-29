@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct WLEDStateResponse: Codable {
     let state: WLEDState
@@ -29,13 +30,13 @@ struct WLEDState: Codable {
         /// Active color scheme in this palette
         let colors: [[Float]]
         
-        var color: (Float, Float, Float)? {
+        var color: UIColor? {
             guard let colors = colors.first else { return nil }
-            let red = colors[0]
-            let green = colors[1]
-            let blue = colors[2]
+            let red = CGFloat(colors[0])
+            let green = CGFloat(colors[1])
+            let blue = CGFloat(colors[2])
             
-            return (red, green, blue)
+            return UIColor(red: red, green: green, blue: blue, alpha: 1)
         }
         
         enum CodingKeys: String, CodingKey {
