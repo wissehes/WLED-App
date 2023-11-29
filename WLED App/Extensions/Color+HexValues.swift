@@ -11,30 +11,22 @@ import SwiftUI
 
 extension UIColor {
     /// Initialize a color from a hex string
-    public convenience init?(hex: String) {
-        let r, g, b, a: CGFloat
-
-        if hex.hasPrefix("#") {
-            let start = hex.index(hex.startIndex, offsetBy: 1)
-            let hexColor = String(hex[start...])
-
-            if hexColor.count == 8 {
-                let scanner = Scanner(string: hexColor)
-                var hexNumber: UInt64 = 0
-
-                if scanner.scanHexInt64(&hexNumber) {
-                    r = CGFloat((hexNumber & 0xff000000) >> 24) / 255
-                    g = CGFloat((hexNumber & 0x00ff0000) >> 16) / 255
-                    b = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
-                    a = CGFloat(hexNumber & 0x000000ff) / 255
-
-                    self.init(red: r, green: g, blue: b, alpha: a)
-                    return
-                }
-            }
+    public convenience init(hex: String) {
+        var hexVal = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if hexVal.hasPrefix("#") {
+            hexVal.remove(at: hex.startIndex)
         }
-
-        return nil
+        
+        var rgb: UInt64 = 0
+        
+        Scanner(string: hexVal).scanHexInt64(&rgb)
+        
+        let red = CGFloat((rgb & 0xFF0000) >> 16) / 255
+        let green = CGFloat((rgb & 0x00FF00) >> 8) / 255
+        let blue = CGFloat(rgb & 0x0000FF) / 255
+        
+        self.init(red: red, green: green, blue: blue, alpha: 1)
     }
     
     /// Converts the color to a hex string and returns it
