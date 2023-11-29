@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import UIKit
 
 @Model class Device {
     // MARK: Device info
@@ -40,6 +41,7 @@ import SwiftData
         self.isOnline = true
         self.isPoweredOn = device.state.on
         self.brightness = device.state.brightness
+        self.color = device.state.segments.first?.color?.toHex()
     }
     
     @MainActor
@@ -51,6 +53,11 @@ import SwiftData
     
     var url: URL {
         URL(string: "http://\(address):\(port)")!
+    }
+    
+    var actualColor: UIColor? {
+        guard let color else { return nil }
+        return UIColor(hex: color)
     }
     
     /// Default initializer
@@ -75,6 +82,6 @@ import SwiftData
         self.isOnline = true
         self.isPoweredOn = wled.state.on
         self.brightness = wled.state.brightness
-        self.color = nil
+        self.color = wled.state.segments.first?.color?.toHex()
     }
 }
