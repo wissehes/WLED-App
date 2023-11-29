@@ -11,23 +11,25 @@ import UIKit
 import SwiftUI
 
 @Model class Device {
+    let id = UUID()
+    
     // MARK: Device info
     
     /// IP Address of the device
-    @Attribute(.unique) var address: String
+    var address: String = "0.0.0.0"
     /// Device's mac address
-    var macAddress: String
+    var macAddress: String?
     /// Port number
-    var port: String
+    var port: String = "80"
     /// Device name
-    var name: String
+    var name: String = "WLED"
     
     // MARK: Device state
     
-    var isOnline: Bool
-    var isPoweredOn: Bool
+    var isOnline: Bool = false
+    var isPoweredOn: Bool = false
     /// Brightness level from 1 - 255
-    var brightness: Float
+    var brightness: Float = 0
     var color: String?
     
     // MARK: Methods
@@ -64,27 +66,38 @@ import SwiftUI
     }
     
     /// Default initializer
-    init(address: String, macAddress: String, port: String, name: String, isOnline: Bool, isPoweredOn: Bool, brightness: Float, color: String? = nil) {
-        self.address = address
+    init(
+        address: String?,
+        macAddress: String?,
+        port: String?,
+        name: String?,
+        isOnline: Bool?,
+        isPoweredOn: Bool?,
+        brightness: Float?,
+        color: String?
+    ) {
+        self.address = address ?? "0.0.0.0"
         self.macAddress = macAddress
-        self.port = port
-        self.name = name
-        self.isOnline = isOnline
-        self.isPoweredOn = isPoweredOn
-        self.brightness = brightness
+        self.port = port ?? "80"
+        self.name = name ?? "WLED"
+        self.isOnline = isOnline ?? false
+        self.isPoweredOn = isPoweredOn ?? false
+        self.brightness = brightness ?? 0
         self.color = color
     }
     
     /// Initialize from a WLED response
-    init(wled: WLEDStateResponse, port: String = "80") {
-        self.address = wled.info.ip
-        self.macAddress = wled.info.mac
-        self.port = port
-        self.name = wled.info.name
-
-        self.isOnline = true
-        self.isPoweredOn = wled.state.on
-        self.brightness = wled.state.brightness
-        self.color = wled.state.segments.first?.color?.toHex()
+    convenience init(wled: WLEDStateResponse, port: String = "80") {
+        self.init(
+            address: wled.info.ip,
+            macAddress: wled.info.mac,
+            port: port, 
+            name: wled.info.name,
+            
+            isOnline: true,
+            isPoweredOn: wled.state.on,
+            brightness: wled.state.brightness,
+            color: wled.state.segments.first?.color?.toHex()
+        )
     }
 }
