@@ -26,6 +26,7 @@ import SwiftData
     var isPoweredOn: Bool
     /// Brightness level from 1 - 255
     var brightness: Float
+    var color: String?
     
     // MARK: Methods
     
@@ -53,7 +54,7 @@ import SwiftData
     }
     
     /// Default initializer
-    init(address: String, macAddress: String, port: String, name: String, isOnline: Bool, isPoweredOn: Bool, brightness: Float) {
+    init(address: String, macAddress: String, port: String, name: String, isOnline: Bool, isPoweredOn: Bool, brightness: Float, color: String? = nil) {
         self.address = address
         self.macAddress = macAddress
         self.port = port
@@ -61,6 +62,7 @@ import SwiftData
         self.isOnline = isOnline
         self.isPoweredOn = isPoweredOn
         self.brightness = brightness
+        self.color = color
     }
     
     /// Initialize from a WLED response
@@ -73,5 +75,6 @@ import SwiftData
         self.isOnline = true
         self.isPoweredOn = wled.state.on
         self.brightness = wled.state.brightness
+        self.color = nil
     }
 }
