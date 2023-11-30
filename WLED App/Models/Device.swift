@@ -24,6 +24,9 @@ import SwiftUI
     /// Device name
     var name: String = "WLED"
     
+    /// Device's presets
+    var presets: [WLEDPreset.Normalized] = []
+    
     // MARK: Device state
     
     var isOnline: Bool = false
@@ -36,15 +39,21 @@ import SwiftUI
     
     @MainActor
     func update() async {
-        guard let device = try? await self.api.getInfo() else {
+        do {
+            let device = try await self.api.getInfo()
+            
+            self.isOnline = true
+            self.isPoweredOn = device.state.on
+            self.brightness = device.state.brightness
+            self.color = device.state.segments.first?.color?.toHex()
+        } catch {
             self.isOnline = false
-            return
+            print(error )
         }
         
-        self.isOnline = true
-        self.isPoweredOn = device.state.on
-        self.brightness = device.state.brightness
-        self.color = device.state.segments.first?.color?.toHex()
+        do {
+            self.presets = try await self.api.getPresets()
+        } catch { print(error) }
     }
     
     @MainActor
