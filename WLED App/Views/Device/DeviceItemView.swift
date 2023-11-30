@@ -31,6 +31,9 @@ struct DeviceItemView: View {
                 .labelsHidden()
         }.tint(device.actualColor)
         .contextMenu {
+            toggleButton
+            presetsMenu
+            Divider()
             deleteButton
         }
         .swipeActions {
@@ -44,6 +47,20 @@ struct DeviceItemView: View {
     var deleteButton: some View {
         Button("Delete", systemImage: "trash", role: .destructive) {
             modelContext.delete(device)
+        }
+    }
+    
+    var toggleButton: some View {
+        Button("Toggle device", systemImage: "power") {
+            device.isPoweredOn.toggle()
+        }
+    }
+    
+    var presetsMenu: some View {
+        Menu("Presets") {
+            ForEach(device.presets) { preset in
+                Label("\(preset.id). \(preset.name)", systemImage: "lightbulb.fill")
+            }
         }
     }
 }
