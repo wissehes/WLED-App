@@ -9,11 +9,24 @@ import Foundation
 import Alamofire
 
 class WLED {
-    static let shared = WLED()
+    private var baseUrl: URL
+    
+    private var jsonUrl: URL {
+        baseUrl.appending(path: "/json")
+    }
+    
+    init(baseUrl: URL) {
+        self.baseUrl = baseUrl
+    }
+    
+    init?(address: String, port: String) {
+        guard let url = URL(string: "http://\(address):\(port)") else { return nil }
+        self.baseUrl = url
+    }
     
     /// Get the JSON state/info object from a device
-    func getInfo(address: String, port: String) async throws -> WLEDStateResponse {
-        let data = try await AF.request("http://\(address):\(port)/json")
+    func getInfo() async throws -> WLEDStateResponse {
+        let data = try await AF.request(jsonUrl)
             .validate()
             .serializingDecodable(WLEDStateResponse.self)
             .value
@@ -22,13 +35,12 @@ class WLED {
     }
     
     /// Set the on/off state of the device
-    func setState(_ state: Bool, address: String, port: String) async {
+    func setState(_ state: Bool) async {
         let body = [
             "on": state
         ]
         
-        guard let url = URL(string: "http://\(address):\(port)/json") else { return }
-        guard var request = try? URLRequest(url: url, method: .post) else { return }
+        guard var request = try? URLRequest(url: jsonUrl, method: .post) else { return }
         request.httpBody = try? JSONEncoder().encode(body)
         request.headers = [ .contentType("application/json") ]
         
