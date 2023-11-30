@@ -22,6 +22,7 @@
 		89BEF5D92B16951000C76A23 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5D82B16951000C76A23 /* WebView.swift */; };
 		89BEF5DC2B16961A00C76A23 /* DeviceWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5DB2B16961A00C76A23 /* DeviceWebView.swift */; };
 		89EBF3822B17D48000F92C92 /* AddDeviceForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EBF3812B17D48000F92C92 /* AddDeviceForm.swift */; };
+		89FB2D3B2B192AB90015278A /* WLEDPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB2D3A2B192AB90015278A /* WLEDPreset.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		89BEF5D82B16951000C76A23 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		89BEF5DB2B16961A00C76A23 /* DeviceWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceWebView.swift; sourceTree = "<group>"; };
 		89EBF3812B17D48000F92C92 /* AddDeviceForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeviceForm.swift; sourceTree = "<group>"; };
+		89FB2D3A2B192AB90015278A /* WLEDPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLEDPreset.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			children = (
 				897AB7CB2B153CA000E3DC8F /* Device.swift */,
 				89BEF5D12B162CCB00C76A23 /* WLEDState.swift */,
+				89FB2D3A2B192AB90015278A /* WLEDPreset.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				897AB7B82B15302200E3DC8F /* ContentView.swift in Sources */,
 				897AB7CA2B15337100E3DC8F /* DiscoveryService.swift in Sources */,
 				89BEF5D22B162CCB00C76A23 /* WLEDState.swift in Sources */,
+				89FB2D3B2B192AB90015278A /* WLEDPreset.swift in Sources */,
 				897AB7B62B15302200E3DC8F /* WLED_AppApp.swift in Sources */,
 				89BEF5D92B16951000C76A23 /* WebView.swift in Sources */,
 				89EBF3822B17D48000F92C92 /* AddDeviceForm.swift in Sources */,
