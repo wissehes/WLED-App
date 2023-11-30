@@ -96,7 +96,8 @@ final class DiscoveryService {
         // Fetch the device's state and add the device
         // to the list of discovered devices
         Task {
-            guard let wled = try? await WLED.shared.getInfo(address: address, port: "\(port)") else { return }
+            guard let api = WLED(address: address, port: "\(port)") else { return }
+            guard let wled = try? await api.getInfo() else { return }
          
             // Add the device
             let newDevice = Device(wled: wled, port: "\(port)")

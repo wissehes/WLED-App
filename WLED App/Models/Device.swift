@@ -36,7 +36,7 @@ import SwiftUI
     
     @MainActor
     func update() async {
-        guard let device = try? await WLED.shared.getInfo(address: self.address, port: self.port) else {
+        guard let device = try? await self.api.getInfo() else {
             self.isOnline = false
             return
         }
@@ -49,20 +49,7 @@ import SwiftUI
     
     @MainActor
     func setOnOff(state: Bool) async {
-        await WLED.shared.setState(state, address: self.address, port: self.port)
-    }
-    
-    // MARK: Computed values
-    
-    var url: URL {
-        URL(string: "http://\(address):\(port)")!
-    }
-    
-    var actualColor: Color? {
-        guard let color else { return nil }
-        let uiColor = UIColor(hex: color)
-        
-        return Color(uiColor: uiColor)
+        await self.api.setState(state)
     }
     
     /// Default initializer
@@ -99,5 +86,24 @@ import SwiftUI
             brightness: wled.state.brightness,
             color: wled.state.segments.first?.color?.toHex()
         )
+    }
+}
+
+extension Device {
+    // MARK: Computed values
+    
+    var url: URL {
+        URL(string: "http://\(address):\(port)")!
+    }
+
+    var api: WLED {
+        WLED(baseUrl: self.url)
+    }
+    
+    var actualColor: Color? {
+        guard let color else { return nil }
+        let uiColor = UIColor(hex: color)
+        
+        return Color(uiColor: uiColor)
     }
 }
