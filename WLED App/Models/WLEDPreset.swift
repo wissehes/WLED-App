@@ -19,16 +19,16 @@ struct WLEDPreset: Codable {
         case segments = "seg"
     }
     
-    struct Normalized: Identifiable {
+    struct Normalized: Identifiable, Codable {
         let name: String
         let id: String
-        let color: UIColor?
+        let color: String?
         
         init?(_ preset: WLEDPreset, id: String) {
             guard let name = preset.name, let segments = preset.segments else { return nil }
             
             self.name = name
-            self.color = segments.first?.color
+            self.color = segments.first?.color?.toHex()
             self.id = id
         }
     }
