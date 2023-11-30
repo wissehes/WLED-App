@@ -67,6 +67,7 @@ import SwiftUI
         macAddress: String?,
         port: String?,
         name: String?,
+        presets: [WLEDPreset.Normalized]?,
         isOnline: Bool?,
         isPoweredOn: Bool?,
         brightness: Float?,
@@ -76,6 +77,7 @@ import SwiftUI
         self.macAddress = macAddress
         self.port = port ?? "80"
         self.name = name ?? "WLED"
+        self.presets = presets ?? []
         self.isOnline = isOnline ?? false
         self.isPoweredOn = isPoweredOn ?? false
         self.brightness = brightness ?? 0
@@ -89,6 +91,7 @@ import SwiftUI
             macAddress: wled.info.mac,
             port: port, 
             name: wled.info.name,
+            presets: [],
             
             isOnline: true,
             isPoweredOn: wled.state.on,
