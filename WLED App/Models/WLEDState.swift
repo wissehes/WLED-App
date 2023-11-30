@@ -28,10 +28,10 @@ struct WLEDState: Codable {
     
     struct Segment: Codable {
         /// Active color scheme in this palette
-        let colors: [[Float]]
+        let colors: [[Float]]?
         
         var color: UIColor? {
-            guard let colors = colors.first else { return nil }
+            guard let colors = colors?.first else { return nil }
             let red = CGFloat(colors[0] / 255)
             let green = CGFloat(colors[1] / 255)
             let blue = CGFloat(colors[2] / 255)
