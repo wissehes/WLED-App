@@ -14,7 +14,7 @@ struct ContentView: View {
     
     @State private var selectedDevice: Device?
     @State private var addDevicesShowing = false
-    @State private var isOn = false
+    @State private var changeIconShowing = false
     
     var body: some View {
         // TODO: Seperate these views into their own file
@@ -28,15 +28,16 @@ struct ContentView: View {
                 .animation(.easeInOut, value: devices)
                 .toolbar {
                     ToolbarItem(placement: .primaryAction) {
-                        Button("Add devices", systemImage: "plus") {
-                            addDevicesShowing.toggle()
-                        }
+                        menu
                     }
                 }
                 .task { await refreshAll() }
                 .refreshable { await refreshAll() }
                 .sheet(isPresented: $addDevicesShowing, content: {
                     DiscoverDevicesSheet()
+                })
+                .sheet(isPresented: $changeIconShowing, content: {
+                    ChangeAppIconView()
                 })
         } detail: {
             if let device = selectedDevice {
@@ -50,6 +51,18 @@ struct ContentView: View {
     private func refreshAll() async {
         for device in devices {
             await device.update()
+        }
+    }
+    
+    private var menu: some View {
+        Menu("Menu", systemImage: "ellipsis") {
+            Button("Add devices", systemImage: "plus") {
+                addDevicesShowing.toggle()
+            }
+            
+            Button("Change icon", systemImage: "app.dashed") {
+                changeIconShowing.toggle()
+            }
         }
     }
 }
