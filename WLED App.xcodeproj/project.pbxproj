@@ -30,6 +30,10 @@
 /* Begin PBXFileReference section */
 		894CECD62B1A917E004B3B57 /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		894CECD82B1A926E004B3B57 /* ChangeAppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAppIconView.swift; sourceTree = "<group>"; };
+		894CECDA2B1A9916004B3B57 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		894CECDD2B1A9960004B3B57 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
+		894CECDE2B1A9961004B3B57 /* Presets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Presets.png; sourceTree = "<group>"; };
+		894CECDF2B1A9961004B3B57 /* Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icons.png; sourceTree = "<group>"; };
 		896D073E2B177E4F006C500F /* Color+HexValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+HexValues.swift"; sourceTree = "<group>"; };
 		897AB7B22B15302200E3DC8F /* WLED App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WLED App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		897AB7B52B15302200E3DC8F /* WLED_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLED_AppApp.swift; sourceTree = "<group>"; };
@@ -62,6 +66,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		894CECDC2B1A9941004B3B57 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				894CECDD2B1A9960004B3B57 /* Home.png */,
+				894CECDE2B1A9961004B3B57 /* Presets.png */,
+				894CECDF2B1A9961004B3B57 /* Icons.png */,
+			);
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
 		896D073D2B177D10006C500F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +87,8 @@
 		897AB7A92B15302200E3DC8F = {
 			isa = PBXGroup;
 			children = (
+				894CECDC2B1A9941004B3B57 /* Screenshots */,
+				894CECDA2B1A9916004B3B57 /* README.md */,
 				897AB7B42B15302200E3DC8F /* WLED App */,
 				897AB7B32B15302200E3DC8F /* Products */,
 			);
