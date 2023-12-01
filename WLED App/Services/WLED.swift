@@ -24,6 +24,27 @@ class WLED {
         self.baseUrl = url
     }
     
+    /// Send JSON State to the device
+    ///
+    /// This sends the JSON State you supply to the device.
+    /// See https://kno.wled.ge/interfaces/json-api/
+    ///
+    /// Note: This function ignores the response sent back by the API.
+    ///
+    /// - Parameters:
+    ///     - state: The JSON State to send
+    ///
+    func sendJSON(state: Parameters) async {
+        let _ = try? await AF.request(
+            jsonUrl,
+            method: .post,
+            parameters: state,
+            encoding: JSONEncoding.default
+        )
+            .serializingData()
+            .value
+    }
+    
     /// Get the JSON state/info object from a device
     func getInfo() async throws -> WLEDStateResponse {
         let data = try await AF.request(jsonUrl)
@@ -43,12 +64,14 @@ class WLED {
         
         var items: [WLEDPreset.Normalized] = [];
         
+        // Map presets to a normalized form
         for (id, preset) in data {
             guard let normalized = WLEDPreset.Normalized(preset, id: id) else { continue }
             
             items.append(normalized)
         }
         
+        // Sort them by id
         items.sort { $0.id < $1.id }
         
         return items
@@ -56,14 +79,20 @@ class WLED {
     
     /// Set the on/off state of the device
     func setState(_ state: Bool) async {
-        let body = [
+        let state = [
             "on": state
         ]
         
-        guard var request = try? URLRequest(url: jsonUrl, method: .post) else { return }
-        request.httpBody = try? JSONEncoder().encode(body)
-        request.headers = [ .contentType("application/json") ]
+        await self.sendJSON(state: state)
+    }
+    
+    /// Set the current preset
+    func setPreset(_ preset: WLEDPreset.Normalized) async {
+        let state: Parameters = [
+            "ps": preset.id,
+            "on": true
+        ]
         
-        let _ = try? await URLSession.shared.data(for: request)
+        await self.sendJSON(state: state)
     }
 }
