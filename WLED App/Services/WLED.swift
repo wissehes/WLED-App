@@ -34,6 +34,7 @@ class WLED {
         return data
     }
     
+    /// Get the presets from a device
     func getPresets() async throws -> [WLEDPreset.Normalized] {
         let data = try await AF.request(baseUrl.appending(path: "/presets.json"))
             .validate()
