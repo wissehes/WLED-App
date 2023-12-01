@@ -34,14 +34,18 @@ import SwiftUI
     /// Brightness level from 1 - 255
     var brightness: Float = 0
     var color: String?
+    var preset: WLEDPreset.Normalized?
     
     // MARK: Methods
     
     /// Updates the current state of the device
     @MainActor
     func update() async {
+        var device: WLEDStateResponse? = nil
+        
         do {
-            let device = try await self.api.getInfo()
+            device = try await self.api.getInfo()
+            guard let device else { return }
             
             self.isOnline = true
             self.isPoweredOn = device.state.on
@@ -54,6 +58,7 @@ import SwiftUI
         
         do {
             self.presets = try await self.api.getPresets()
+            self.preset = self.presets.first(where: { $0.id == device?.state.presetId.description })
         } catch { print(error) }
     }
     
@@ -72,7 +77,8 @@ import SwiftUI
         isOnline: Bool?,
         isPoweredOn: Bool?,
         brightness: Float?,
-        color: String?
+        color: String?,
+        preset: WLEDPreset.Normalized?
     ) {
         self.address = address ?? "0.0.0.0"
         self.macAddress = macAddress
@@ -83,6 +89,7 @@ import SwiftUI
         self.isPoweredOn = isPoweredOn ?? false
         self.brightness = brightness ?? 0
         self.color = color
+        self.preset = preset
     }
     
     /// Initialize from a WLED response
@@ -97,7 +104,8 @@ import SwiftUI
             isOnline: true,
             isPoweredOn: wled.state.on,
             brightness: wled.state.brightness,
-            color: wled.state.segments.first?.color?.toHex()
+            color: wled.state.segments.first?.color?.toHex(),
+            preset: nil
         )
     }
 }
@@ -122,19 +130,4 @@ extension Device {
         
         return Color(uiColor: uiColor)
     }
-}
-
-extension Device {
-    /// Example Device instance
-    static var example: Device = .init(
-        address: nil,
-        macAddress: nil,
-        port: nil,
-        name: "WLED Light",
-        presets: [],
-        isOnline: true,
-        isPoweredOn: true,
-        brightness: 200, 
-        color: "#34e8eb"
-    )
 }
