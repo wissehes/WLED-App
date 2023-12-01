@@ -33,7 +33,9 @@ struct DeviceItemView: View {
         .contextMenu {
             toggleButton
             presetsMenu
+            
             Divider()
+            
             deleteButton
         }
         .swipeActions {
@@ -41,6 +43,11 @@ struct DeviceItemView: View {
         }
         .onChange(of: device.isPoweredOn) {
             Task { await device.setOnOff(state: device.isPoweredOn) }
+        }
+        .onChange(of: device.preset) {
+            print("Current preset: \(device.preset?.name ?? "None")")
+//            guard let preset = device.preset else { return }
+//            Task
         }
     }
     
@@ -57,9 +64,35 @@ struct DeviceItemView: View {
     }
     
     var presetsMenu: some View {
-        Menu("Presets") {
+        Picker("Preset", selection: $device.preset) {
+            Text("None")
+                .italic()
+                .tag(nil as Optional<WLEDPreset.Normalized>)
+            
             ForEach(device.presets) { preset in
-                Label("\(preset.id). \(preset.name)", systemImage: "lightbulb.fill")
+                MenuItem(preset: preset, isSelected: device.preset == preset)
+                    .tag(preset as Optional<WLEDPreset.Normalized>)
+            }
+        }
+    }
+    
+    struct MenuItem: View {
+        var preset: WLEDPreset.Normalized
+        var isSelected: Bool
+        
+        var color: Color? {
+            guard let hex = preset.color else { return nil }
+            let uiColor = UIColor(hex: hex)
+            return Color(uiColor: uiColor)
+        }
+        
+        var body: some View {
+            HStack(alignment: .center) {
+                Text(preset.name)
+                Spacer()
+                Image(systemName: "lightbulb")
+                    .symbolVariant(isSelected ? .fill : .none)
+                    .foregroundStyle(self.color ?? .accentColor)
             }
         }
     }
