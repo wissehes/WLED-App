@@ -37,6 +37,7 @@ import SwiftUI
     
     // MARK: Methods
     
+    /// Updates the current state of the device
     @MainActor
     func update() async {
         do {
@@ -104,14 +105,17 @@ import SwiftUI
 extension Device {
     // MARK: Computed values
     
+    /// URL of the device
     var url: URL {
         URL(string: "http://\(address):\(port)")!
     }
 
+    /// WLED api for the device
     var api: WLED {
         WLED(baseUrl: self.url)
     }
     
+    /// SwiftUI Color instance for this device
     var actualColor: Color? {
         guard let color else { return nil }
         let uiColor = UIColor(hex: color)
