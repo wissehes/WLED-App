@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		894CECD72B1A917E004B3B57 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894CECD62B1A917E004B3B57 /* AppIcon.swift */; };
+		894CECD92B1A926E004B3B57 /* ChangeAppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894CECD82B1A926E004B3B57 /* ChangeAppIconView.swift */; };
 		896D073F2B177E4F006C500F /* Color+HexValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896D073E2B177E4F006C500F /* Color+HexValues.swift */; };
 		897AB7B62B15302200E3DC8F /* WLED_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB7B52B15302200E3DC8F /* WLED_AppApp.swift */; };
 		897AB7B82B15302200E3DC8F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB7B72B15302200E3DC8F /* ContentView.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		894CECD62B1A917E004B3B57 /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
+		894CECD82B1A926E004B3B57 /* ChangeAppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAppIconView.swift; sourceTree = "<group>"; };
 		896D073E2B177E4F006C500F /* Color+HexValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+HexValues.swift"; sourceTree = "<group>"; };
 		897AB7B22B15302200E3DC8F /* WLED App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WLED App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		897AB7B52B15302200E3DC8F /* WLED_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLED_AppApp.swift; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 				897AB7CB2B153CA000E3DC8F /* Device.swift */,
 				89BEF5D12B162CCB00C76A23 /* WLEDState.swift */,
 				89FB2D3A2B192AB90015278A /* WLEDPreset.swift */,
+				894CECD62B1A917E004B3B57 /* AppIcon.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 				897AB7C62B15322300E3DC8F /* DiscoverDevicesSheet.swift */,
 				89BEF5D82B16951000C76A23 /* WebView.swift */,
 				89EBF3812B17D48000F92C92 /* AddDeviceForm.swift */,
+				894CECD82B1A926E004B3B57 /* ChangeAppIconView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -226,6 +232,8 @@
 				89BEF5D72B16858A00C76A23 /* DeviceItemView.swift in Sources */,
 				897AB7B82B15302200E3DC8F /* ContentView.swift in Sources */,
 				897AB7CA2B15337100E3DC8F /* DiscoveryService.swift in Sources */,
+				894CECD72B1A917E004B3B57 /* AppIcon.swift in Sources */,
+				894CECD92B1A926E004B3B57 /* ChangeAppIconView.swift in Sources */,
 				89BEF5D22B162CCB00C76A23 /* WLEDState.swift in Sources */,
 				89FB2D3B2B192AB90015278A /* WLEDPreset.swift in Sources */,
 				897AB7B62B15302200E3DC8F /* WLED_AppApp.swift in Sources */,
@@ -365,6 +373,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "WLED App/WLED App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -397,6 +406,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "WLED App/WLED App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
