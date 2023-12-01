@@ -119,3 +119,18 @@ extension Device {
         return Color(uiColor: uiColor)
     }
 }
+
+extension Device {
+    /// Example Device instance
+    static var example: Device = .init(
+        address: nil,
+        macAddress: nil,
+        port: nil,
+        name: "WLED Light",
+        presets: [],
+        isOnline: true,
+        isPoweredOn: true,
+        brightness: 200, 
+        color: "#34e8eb"
+    )
+}
