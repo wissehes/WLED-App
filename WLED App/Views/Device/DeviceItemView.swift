@@ -45,9 +45,8 @@ struct DeviceItemView: View {
             Task { await device.setOnOff(state: device.isPoweredOn) }
         }
         .onChange(of: device.preset) {
-            print("Current preset: \(device.preset?.name ?? "None")")
-//            guard let preset = device.preset else { return }
-//            Task
+            guard let preset = device.preset else { return }
+            Task { await device.api.setPreset(preset) }
         }
     }
     
