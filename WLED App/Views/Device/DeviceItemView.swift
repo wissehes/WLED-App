@@ -16,12 +16,21 @@ struct DeviceItemView: View {
         self._device = .init(wrappedValue: device)
     }
     
+    var textColor: Color {
+        if device.isPoweredOn {
+            return device.actualColor ?? .primary
+        } else {
+            return .primary
+        }
+    }
+    
     var body: some View {
         HStack(alignment: .center) {
             VStack(alignment: .leading) {
                 Text(device.name + (device.isOnline ? "" : " (Offline)"))
                     .font(.headline)
-                    .foregroundStyle(device.actualColor ?? .white)
+                    .foregroundStyle(textColor)
+                    .animation(.smooth, value: textColor)
                 Text(device.address)
             }
             
@@ -47,7 +56,10 @@ struct DeviceItemView: View {
         }
         .onChange(of: device.preset) {
             guard let preset = device.preset else { return }
-            Task { await device.api.setPreset(preset) }
+            Task {
+                await device.api.setPreset(preset)
+                await device.update()
+            }
         }
     }
     
