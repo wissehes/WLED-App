@@ -32,6 +32,7 @@ struct DeviceItemView: View {
         }.tint(device.actualColor)
         .contextMenu {
             toggleButton
+            copyAddressButton
             presetsMenu
             
             Divider()
@@ -59,6 +60,12 @@ struct DeviceItemView: View {
     var toggleButton: some View {
         Button("Toggle device", systemImage: "power") {
             device.isPoweredOn.toggle()
+        }
+    }
+    
+    var copyAddressButton: some View {
+        Button("Copy address", systemImage: "link") {
+            UIPasteboard.general.string = device.url.absoluteString
         }
     }
     
