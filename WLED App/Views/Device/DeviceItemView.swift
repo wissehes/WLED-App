@@ -39,6 +39,7 @@ struct DeviceItemView: View {
             Toggle("Is on", isOn: $device.isPoweredOn)
                 .labelsHidden()
         }.tint(device.actualColor)
+            .disabled(!device.isOnline)
         .contextMenu {
             toggleButton
             copyAddressButton
