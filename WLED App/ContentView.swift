@@ -26,6 +26,16 @@ struct ContentView: View {
                 }
             }.navigationTitle("Devices")
                 .animation(.easeInOut, value: devices)
+                .overlay {
+                    if devices.isEmpty {
+                        ContentUnavailableView {
+                            Label("No devices added yet", systemImage: "lightbulb.min")
+                        } actions: {
+                            Button("Add devices") { addDevicesShowing.toggle() }
+                                .buttonStyle(.bordered)
+                        }
+                    }
+                }
                 .toolbar {
                     ToolbarItem(placement: .primaryAction) {
                         menu
