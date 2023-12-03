@@ -39,7 +39,6 @@ struct DeviceWebView: View {
         case .connected(_):
             print("WS Connected")
         case .text(let message):
-            print("Data: \(message)")
             self.updateDevice(for: message)
             
         default:
