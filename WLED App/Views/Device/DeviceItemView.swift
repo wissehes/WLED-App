@@ -24,14 +24,37 @@ struct DeviceItemView: View {
         }
     }
     
+    var brightnessPct: String {
+        let fraction = device.brightness / 255
+        return fraction.formatted(.percent.precision(.fractionLength(0)))
+    }
+    
     var body: some View {
         HStack(alignment: .center) {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 7.5) {
                 Text(device.name + (device.isOnline ? "" : " (Offline)"))
                     .font(.headline)
                     .foregroundStyle(textColor)
                     .animation(.smooth, value: textColor)
-                Text(device.address)
+                
+                HStack(alignment: .center, spacing: 20) {
+                    HStack(alignment: .center, spacing: 5) {
+                        Image(systemName: "lightbulb.max")
+                            .bold()
+                        Text(brightnessPct)
+                            .font(.system(size: 15))
+                    }
+                    
+                    if let preset = device.preset {
+                        HStack(spacing: 5) {
+                            Image(systemName: "list.bullet")
+                                .bold()
+                            Text(preset.name)
+                                .font(.system(size: 15))
+                                .lineLimit(1)
+                        }
+                    }
+                }
             }
             
             Spacer()
@@ -120,3 +143,10 @@ struct DeviceItemView: View {
 //#Preview {
 //    DeviceItemView()
 //}
+
+#Preview {
+    ContentView()
+        .modelContainer(for: [
+            Device.self
+        ])
+}
