@@ -12,8 +12,8 @@ struct WLEDStateResponse: Codable {
     let state: WLEDState
     let info: WLEDInfo
     
-    let effects: [String]
-    let palettes: [String]
+    let effects: [String]?
+    let palettes: [String]?
 }
 
 struct WLEDState: Codable {
