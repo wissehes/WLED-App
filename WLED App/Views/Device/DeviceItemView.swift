@@ -39,10 +39,13 @@ struct DeviceItemView: View {
                 
                 HStack(alignment: .center, spacing: 20) {
                     HStack(alignment: .center, spacing: 5) {
-                        Image(systemName: "lightbulb.max")
+                        Image(systemName: device.isPoweredOn ? "lightbulb.fill" : "lightbulb")
+                            .contentTransition(.symbolEffect(.replace.downUp))
                             .bold()
+
                         Text(brightnessPct)
                             .font(.system(size: 15))
+                            .contentTransition(.numericText())
                     }
                     
                     if let preset = device.preset {
