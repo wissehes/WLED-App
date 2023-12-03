@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		892B04B72B1CBC8B00B5E4B7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B04B62B1CBC8B00B5E4B7 /* DataController.swift */; };
+		892B04BA2B1D214900B5E4B7 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 892B04B92B1D214900B5E4B7 /* Starscream */; };
 		894CECD72B1A917E004B3B57 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894CECD62B1A917E004B3B57 /* AppIcon.swift */; };
 		894CECD92B1A926E004B3B57 /* ChangeAppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894CECD82B1A926E004B3B57 /* ChangeAppIconView.swift */; };
 		896D073F2B177E4F006C500F /* Color+HexValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896D073E2B177E4F006C500F /* Color+HexValues.swift */; };
@@ -62,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89BEF5D52B167DE500C76A23 /* Alamofire in Frameworks */,
+				892B04BA2B1D214900B5E4B7 /* Starscream in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +191,7 @@
 			name = "WLED App";
 			packageProductDependencies = (
 				89BEF5D42B167DE500C76A23 /* Alamofire */,
+				892B04B92B1D214900B5E4B7 /* Starscream */,
 			);
 			productName = "WLED App";
 			productReference = 897AB7B22B15302200E3DC8F /* WLED App.app */;
@@ -220,6 +223,7 @@
 			mainGroup = 897AB7A92B15302200E3DC8F;
 			packageReferences = (
 				89BEF5D32B167DE500C76A23 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				892B04B82B1D214900B5E4B7 /* XCRemoteSwiftPackageReference "Starscream" */,
 			);
 			productRefGroup = 897AB7B32B15302200E3DC8F /* Products */;
 			projectDirPath = "";
@@ -478,6 +482,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		892B04B82B1D214900B5E4B7 /* XCRemoteSwiftPackageReference "Starscream" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daltoniam/Starscream.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.6;
+			};
+		};
 		89BEF5D32B167DE500C76A23 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -489,6 +501,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		892B04B92B1D214900B5E4B7 /* Starscream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 892B04B82B1D214900B5E4B7 /* XCRemoteSwiftPackageReference "Starscream" */;
+			productName = Starscream;
+		};
 		89BEF5D42B167DE500C76A23 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 89BEF5D32B167DE500C76A23 /* XCRemoteSwiftPackageReference "Alamofire" */;
