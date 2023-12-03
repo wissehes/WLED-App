@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		892B04B72B1CBC8B00B5E4B7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B04B62B1CBC8B00B5E4B7 /* DataController.swift */; };
 		894CECD72B1A917E004B3B57 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894CECD62B1A917E004B3B57 /* AppIcon.swift */; };
 		894CECD92B1A926E004B3B57 /* ChangeAppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894CECD82B1A926E004B3B57 /* ChangeAppIconView.swift */; };
 		896D073F2B177E4F006C500F /* Color+HexValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896D073E2B177E4F006C500F /* Color+HexValues.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		892B04B62B1CBC8B00B5E4B7 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		894CECD62B1A917E004B3B57 /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		894CECD82B1A926E004B3B57 /* ChangeAppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAppIconView.swift; sourceTree = "<group>"; };
 		894CECDA2B1A9916004B3B57 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 		897AB7C52B1531B600E3DC8F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				892B04B62B1CBC8B00B5E4B7 /* DataController.swift */,
 				897AB7C92B15337100E3DC8F /* DiscoveryService.swift */,
 				89BEF5CF2B1626EC00C76A23 /* WLED.swift */,
 			);
@@ -257,6 +260,7 @@
 				89EBF3822B17D48000F92C92 /* AddDeviceForm.swift in Sources */,
 				897AB7CC2B153CA000E3DC8F /* Device.swift in Sources */,
 				89BEF5D02B1626EC00C76A23 /* WLED.swift in Sources */,
+				892B04B72B1CBC8B00B5E4B7 /* DataController.swift in Sources */,
 				89BEF5DC2B16961A00C76A23 /* DeviceWebView.swift in Sources */,
 				896D073F2B177E4F006C500F /* Color+HexValues.swift in Sources */,
 			);
