@@ -47,10 +47,7 @@ import SwiftUI
             device = try await self.api.getInfo()
             guard let device else { return }
             
-            self.isOnline = true
-            self.isPoweredOn = device.state.on
-            self.brightness = device.state.brightness
-            self.color = device.state.segments.first?.color?.toHex()
+            self.update(response: device)
         } catch {
             self.isOnline = false
             print(error )
@@ -60,6 +57,16 @@ import SwiftUI
             self.presets = try await self.api.getPresets()
             self.preset = self.presets.first(where: { $0.id == device?.state.presetId.description })
         } catch { print(error) }
+    }
+    
+    /// Update this device's state using the WLED API Response
+    func update(response: WLEDStateResponse) {
+        self.isOnline = true
+        self.isPoweredOn = response.state.on
+        self.brightness = response.state.brightness
+        self.color = response.state.segments.first?.color?.toHex()
+        
+        self.preset = self.presets.first(where: { $0.id == response.state.presetId.description })
     }
     
     @MainActor
