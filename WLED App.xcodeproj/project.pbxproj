@@ -70,6 +70,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		892B04BB2B1D295C00B5E4B7 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				892B04BD2B1D298700B5E4B7 /* Models */,
+				892B04BC2B1D297600B5E4B7 /* Services */,
+				896D073D2B177D10006C500F /* Extensions */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		892B04BC2B1D297600B5E4B7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				892B04B62B1CBC8B00B5E4B7 /* DataController.swift */,
+				89BEF5CF2B1626EC00C76A23 /* WLED.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		892B04BD2B1D298700B5E4B7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				897AB7CB2B153CA000E3DC8F /* Device.swift */,
+				89BEF5D12B162CCB00C76A23 /* WLEDState.swift */,
+				89FB2D3A2B192AB90015278A /* WLEDPreset.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		894CECDC2B1A9941004B3B57 /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +122,7 @@
 			children = (
 				894CECDC2B1A9941004B3B57 /* Screenshots */,
 				894CECDA2B1A9916004B3B57 /* README.md */,
+				892B04BB2B1D295C00B5E4B7 /* Shared */,
 				897AB7B42B15302200E3DC8F /* WLED iOS */,
 				897AB7B32B15302200E3DC8F /* Products */,
 			);
@@ -114,7 +144,6 @@
 				897AB7C52B1531B600E3DC8F /* Services */,
 				897AB7C42B15318E00E3DC8F /* Views */,
 				897AB7C32B15318A00E3DC8F /* Models */,
-				896D073D2B177D10006C500F /* Extensions */,
 				897AB7B52B15302200E3DC8F /* WLED_AppApp.swift */,
 				897AB7B72B15302200E3DC8F /* ContentView.swift */,
 				897AB7B92B15302500E3DC8F /* Assets.xcassets */,
@@ -134,9 +163,6 @@
 		897AB7C32B15318A00E3DC8F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				897AB7CB2B153CA000E3DC8F /* Device.swift */,
-				89BEF5D12B162CCB00C76A23 /* WLEDState.swift */,
-				89FB2D3A2B192AB90015278A /* WLEDPreset.swift */,
 				894CECD62B1A917E004B3B57 /* AppIcon.swift */,
 			);
 			path = Models;
@@ -157,9 +183,7 @@
 		897AB7C52B1531B600E3DC8F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				892B04B62B1CBC8B00B5E4B7 /* DataController.swift */,
 				897AB7C92B15337100E3DC8F /* DiscoveryService.swift */,
-				89BEF5CF2B1626EC00C76A23 /* WLED.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
