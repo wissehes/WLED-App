@@ -12,6 +12,7 @@ struct WLED_watchOS_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modelContainer(for: Device.self)
         }
     }
 }
