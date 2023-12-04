@@ -137,4 +137,15 @@ extension Device {
         
         return Color(uiColor: uiColor)
     }
+    
+    // MARK: Functions
+    
+    func sendBrightness() async {
+        await self.api.sendJSON(state: [ "bri": self.brightness ])
+    }
+    
+    func sendPreset() async {
+        guard let preset else { return }
+        await self.api.setPreset(preset)
+    }
 }
