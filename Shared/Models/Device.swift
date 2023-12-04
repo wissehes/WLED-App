@@ -141,7 +141,7 @@ extension Device {
     // MARK: Functions
     
     func sendBrightness() async {
-        await self.api.sendJSON(state: [ "bri": self.brightness ])
+        await self.api.sendJSON(state: [ "bri": Int(self.brightness) ])
     }
     
     func sendPreset() async {
