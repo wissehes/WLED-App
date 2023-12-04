@@ -14,6 +14,14 @@
 		892B04C92B1E575000B5E4B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 892B04C82B1E575000B5E4B7 /* Assets.xcassets */; };
 		892B04CC2B1E575000B5E4B7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 892B04CB2B1E575000B5E4B7 /* Preview Assets.xcassets */; };
 		892B04CF2B1E575000B5E4B7 /* WLED Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 892B04C22B1E574E00B5E4B7 /* WLED Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		892B04D62B1E585200B5E4B7 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB7CB2B153CA000E3DC8F /* Device.swift */; };
+		892B04D72B1E585200B5E4B7 /* Color+HexValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896D073E2B177E4F006C500F /* Color+HexValues.swift */; };
+		892B04D82B1E585200B5E4B7 /* WLED.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5CF2B1626EC00C76A23 /* WLED.swift */; };
+		892B04D92B1E585200B5E4B7 /* WLEDPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB2D3A2B192AB90015278A /* WLEDPreset.swift */; };
+		892B04DA2B1E585200B5E4B7 /* WLEDState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5D12B162CCB00C76A23 /* WLEDState.swift */; };
+		892B04DB2B1E585200B5E4B7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B04B62B1CBC8B00B5E4B7 /* DataController.swift */; };
+		892B04DD2B1E587C00B5E4B7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 892B04DC2B1E587C00B5E4B7 /* Alamofire */; };
+		892B04E12B1E5B2C00B5E4B7 /* DeviceItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B04E02B1E5B2C00B5E4B7 /* DeviceItemView.swift */; };
 		894CECD72B1A917E004B3B57 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894CECD62B1A917E004B3B57 /* AppIcon.swift */; };
 		894CECD92B1A926E004B3B57 /* ChangeAppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894CECD82B1A926E004B3B57 /* ChangeAppIconView.swift */; };
 		896D073F2B177E4F006C500F /* Color+HexValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896D073E2B177E4F006C500F /* Color+HexValues.swift */; };
@@ -67,6 +75,7 @@
 		892B04CB2B1E575000B5E4B7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		892B04D42B1E579B00B5E4B7 /* WLED Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WLED Watch App.entitlements"; sourceTree = "<group>"; };
 		892B04D52B1E57A700B5E4B7 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
+		892B04E02B1E5B2C00B5E4B7 /* DeviceItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceItemView.swift; sourceTree = "<group>"; };
 		894CECD62B1A917E004B3B57 /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		894CECD82B1A926E004B3B57 /* ChangeAppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAppIconView.swift; sourceTree = "<group>"; };
 		894CECDA2B1A9916004B3B57 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -98,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				892B04DD2B1E587C00B5E4B7 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +157,8 @@
 			children = (
 				892B04D52B1E57A700B5E4B7 /* info.plist */,
 				892B04D42B1E579B00B5E4B7 /* WLED Watch App.entitlements */,
+				892B04DF2B1E590C00B5E4B7 /* Services */,
+				892B04DE2B1E58F700B5E4B7 /* Views */,
 				892B04C42B1E574E00B5E4B7 /* WLED_watchOSApp.swift */,
 				892B04C62B1E574E00B5E4B7 /* ContentView.swift */,
 				892B04C82B1E575000B5E4B7 /* Assets.xcassets */,
@@ -161,6 +173,21 @@
 				892B04CB2B1E575000B5E4B7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		892B04DE2B1E58F700B5E4B7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				892B04E02B1E5B2C00B5E4B7 /* DeviceItemView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		892B04DF2B1E590C00B5E4B7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		894CECDC2B1A9941004B3B57 /* Screenshots */ = {
@@ -279,6 +306,9 @@
 			dependencies = (
 			);
 			name = "WLED Watch App";
+			packageProductDependencies = (
+				892B04DC2B1E587C00B5E4B7 /* Alamofire */,
+			);
 			productName = "WLED watchOS Watch App";
 			productReference = 892B04C22B1E574E00B5E4B7 /* WLED Watch App.app */;
 			productType = "com.apple.product-type.application";
@@ -373,8 +403,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				892B04D62B1E585200B5E4B7 /* Device.swift in Sources */,
 				892B04C72B1E574E00B5E4B7 /* ContentView.swift in Sources */,
+				892B04D92B1E585200B5E4B7 /* WLEDPreset.swift in Sources */,
+				892B04DA2B1E585200B5E4B7 /* WLEDState.swift in Sources */,
 				892B04C52B1E574E00B5E4B7 /* WLED_watchOSApp.swift in Sources */,
+				892B04DB2B1E585200B5E4B7 /* DataController.swift in Sources */,
+				892B04D82B1E585200B5E4B7 /* WLED.swift in Sources */,
+				892B04D72B1E585200B5E4B7 /* Color+HexValues.swift in Sources */,
+				892B04E12B1E5B2C00B5E4B7 /* DeviceItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,6 +756,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 892B04B82B1D214900B5E4B7 /* XCRemoteSwiftPackageReference "Starscream" */;
 			productName = Starscream;
+		};
+		892B04DC2B1E587C00B5E4B7 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89BEF5D32B167DE500C76A23 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 		89BEF5D42B167DE500C76A23 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
