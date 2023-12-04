@@ -6,19 +6,58 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
+    
+    @Query var devices: [Device]
+    
+    @State var selectedDevice: Device?
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationSplitView {
+            List(selection: $selectedDevice) {
+                ForEach(devices) { device in
+                    HStack {
+                        Text(device.name)
+                            .bold()
+                        
+                        Spacer()
+                        
+                        // TODO: Make this toggle actually send the state
+                        Toggle("Device state", isOn: .constant(true))
+                            .labelsHidden()
+                    }
+                    .tag(device)
+                    .onTapGesture {
+                        selectedDevice = device
+                    }
+                }
+            }.task {
+                await updateDevices()
+            }.overlay {
+                if devices.isEmpty {
+                    ContentUnavailableView("No devices", systemImage: "lightbulb.min.badge.exclamationmark")
+                }
+            }
+        } detail: {
+            if let selectedDevice {
+                DeviceItemView(device: selectedDevice)
+            } else {
+                Text("Select a device")
+            }
         }
-        .padding()
+        
+    }
+    
+    private func updateDevices() async {
+        for device in devices {
+            await device.update()
+        }
     }
 }
 
 #Preview {
     ContentView()
+        .modelContainer(DataController.previewContainer)
 }
