@@ -24,7 +24,7 @@ struct WLEDPreset: Codable {
         let id: String
         let color: String?
         
-        init(name: String, id: String, color: String) {
+        init(name: String, id: String, color: String?) {
             self.name = name
             self.id = id
             self.color = color
