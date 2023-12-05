@@ -33,6 +33,7 @@ struct DeviceListView: View {
             Image(systemName: "lightbulb")
                 .symbolVariant(device.isPoweredOn ? .fill : .none)
                 .contentTransition(.symbolEffect(.replace.downUp))
+                .animation(.easeInOut, value: iconColor)
                 .foregroundStyle(iconColor)
             
             Toggle("Device state", isOn: $device.isPoweredOn)
