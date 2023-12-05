@@ -53,11 +53,12 @@ struct DeviceItemView: View {
                             Text(preset.name)
                                 .tag(preset as WLEDPreset.Normalized?)
                         }
+                        
                     } label: {
                         Label("Preset", systemImage: "list.bullet")
                     }
                     
-                    Toggle("Sync", systemImage: "arrow.triangle.2.circlepath", isOn: $device.isPoweredOn)
+                    Toggle("Sync", systemImage: "arrow.triangle.2.circlepath", isOn: $device.isSyncSend)
                 }
             }.tag(2)
         }.navigationTitle(device.name)
@@ -77,24 +78,9 @@ struct DeviceItemView: View {
 
 #Preview {
     let container = DataController.previewContainer
-
-    let device = Device(
-        address: "192.168.178.113",
-        macAddress: nil,
-        port: nil,
-        name: nil,
-        presets: [
-            .init(name: "Normal", id: "1", color: nil)
-        ],
-        isOnline: true,
-        isPoweredOn: true,
-        brightness: 255,
-        color: nil,
-        preset: nil
-    )
     
     return NavigationStack {
-        DeviceItemView(device: device)
+        DeviceItemView(device: Device.exampleDevice())
             .modelContainer(container)
     }
 }
