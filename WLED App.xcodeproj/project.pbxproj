@@ -33,6 +33,7 @@
 		897AB7C72B15322300E3DC8F /* DiscoverDevicesSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB7C62B15322300E3DC8F /* DiscoverDevicesSheet.swift */; };
 		897AB7CA2B15337100E3DC8F /* DiscoveryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB7C92B15337100E3DC8F /* DiscoveryService.swift */; };
 		897AB7CC2B153CA000E3DC8F /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB7CB2B153CA000E3DC8F /* Device.swift */; };
+		8981280E2B1F67E100C79728 /* DiscoveryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB7C92B15337100E3DC8F /* DiscoveryService.swift */; };
 		89BEF5D02B1626EC00C76A23 /* WLED.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5CF2B1626EC00C76A23 /* WLED.swift */; };
 		89BEF5D22B162CCB00C76A23 /* WLEDState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5D12B162CCB00C76A23 /* WLEDState.swift */; };
 		89BEF5D52B167DE500C76A23 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 89BEF5D42B167DE500C76A23 /* Alamofire */; };
@@ -138,6 +139,7 @@
 		892B04BC2B1D297600B5E4B7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				897AB7C92B15337100E3DC8F /* DiscoveryService.swift */,
 				892B04B62B1CBC8B00B5E4B7 /* DataController.swift */,
 				89BEF5CF2B1626EC00C76A23 /* WLED.swift */,
 			);
@@ -237,7 +239,6 @@
 			children = (
 				89BEF5CE2B1625BC00C76A23 /* WLED App.entitlements */,
 				897AB7C82B15331900E3DC8F /* WLED-App-Info.plist */,
-				897AB7C52B1531B600E3DC8F /* Services */,
 				897AB7C42B15318E00E3DC8F /* Views */,
 				897AB7C32B15318A00E3DC8F /* Models */,
 				897AB7B52B15302200E3DC8F /* WLED_AppApp.swift */,
@@ -274,14 +275,6 @@
 				894CECD82B1A926E004B3B57 /* ChangeAppIconView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		897AB7C52B1531B600E3DC8F /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				897AB7C92B15337100E3DC8F /* DiscoveryService.swift */,
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		89BEF5DA2B16960A00C76A23 /* Device */ = {
@@ -413,6 +406,7 @@
 				892B04DA2B1E585200B5E4B7 /* WLEDState.swift in Sources */,
 				892B04C52B1E574E00B5E4B7 /* WLED_watchOSApp.swift in Sources */,
 				892B04DB2B1E585200B5E4B7 /* DataController.swift in Sources */,
+				8981280E2B1F67E100C79728 /* DiscoveryService.swift in Sources */,
 				892B04D82B1E585200B5E4B7 /* WLED.swift in Sources */,
 				892B04D72B1E585200B5E4B7 /* Color+HexValues.swift in Sources */,
 				892B04E12B1E5B2C00B5E4B7 /* DeviceItemView.swift in Sources */,
