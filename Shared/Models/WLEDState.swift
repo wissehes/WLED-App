@@ -25,6 +25,7 @@ struct WLEDState: Codable {
     let presetId: Int
     let playlistId: Int
     let segments: [Segment]
+    let udp: UDPSettings
     
     struct Segment: Codable {
         /// Active color scheme in this palette
@@ -44,12 +45,23 @@ struct WLEDState: Codable {
         }
     }
     
+    struct UDPSettings: Codable {
+        let send: Bool
+        let receive: Bool
+        
+        enum CodingKeys: String, CodingKey {
+            case send
+            case receive = "recv"
+        }
+    }
+    
     enum CodingKeys: String, CodingKey {
         case on         = "on"
         case brightness = "bri"
         case presetId   = "ps"
         case playlistId = "pl"
         case segments   = "seg"
+        case udp        = "udpn"
     }
 }
 
