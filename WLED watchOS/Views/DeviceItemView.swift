@@ -64,8 +64,7 @@ struct DeviceItemView: View {
         }.navigationTitle(device.name)
             .tabViewStyle(.carousel)
             .containerBackground(background, for: .navigation)
-            .contentTransition(.opacity)
-            .animation(.easeInOut, value: device.isPoweredOn)
+            .animation(.easeInOut, value: background)
             .task { await device.update() }
             .onChange(of: device.isPoweredOn) {
                 Task { await device.setOnOff(state: device.isPoweredOn) }
