@@ -14,10 +14,16 @@ struct DeviceItemView: View {
     @State private var device: Device
     @State private var tab: Int = 1
     
-    @State private var brightnessSheetShowing = false
-
     init(device: Device) {
         self._device = .init(wrappedValue: device)
+    }
+    
+    var background: AnyGradient {
+        if device.isPoweredOn {
+            return device.actualColor?.gradient ?? Color.green.gradient
+        } else {
+            return Color.accentColor.gradient
+        }
     }
     
     var body: some View {
@@ -32,51 +38,40 @@ struct DeviceItemView: View {
                 }.font(.system(size: 60))
                     .buttonStyle(.plain)
                     .foregroundStyle(device.isPoweredOn ? .green : .secondary)
-                Slider(value: $device.brightness, in: 1...255, step: 255 * 0.10 ) {
+                
+                Slider(value: $device.brightness, in: 0...255, step: 255 * 0.10 ) {
                     Label("Brightness", systemImage: "light.max")
                 }
-            }.tag(1)
+            }
+            .tag(1)
             
             NavigationStack {
-                Picker(selection: $device.preset) {
-                    Text("None").tag(nil as WLEDPreset.Normalized?)
-                    ForEach(device.presets) { preset in
-                        Text(preset.name)
-                            .tag(preset as WLEDPreset.Normalized?)
+                List {
+                    Picker(selection: $device.preset) {
+                        Text("None").tag(nil as WLEDPreset.Normalized?)
+                        ForEach(device.presets) { preset in
+                            Text(preset.name)
+                                .tag(preset as WLEDPreset.Normalized?)
+                        }
+                    } label: {
+                        Label("Preset", systemImage: "list.bullet")
                     }
-                } label: {
-                    Label("Preset", systemImage: "list.bullet")
+                    
+                    Toggle("Sync", systemImage: "arrow.triangle.2.circlepath", isOn: $device.isPoweredOn)
                 }
-
             }.tag(2)
         }.navigationTitle(device.name)
             .tabViewStyle(.carousel)
+            .containerBackground(background, for: .navigation)
+            .contentTransition(.opacity)
+            .animation(.easeInOut, value: device.isPoweredOn)
+            .task { await device.update() }
             .onChange(of: device.isPoweredOn) {
                 Task { await device.setOnOff(state: device.isPoweredOn) }
             }
             .onChange(of: device.brightness) {
-                // TODO: Debounce value
                 Task { await device.sendBrightness() }
             }
-//            .toolbar {
-//                toolbar
-//            }
-//            .sheet(isPresented: $brightnessSheetShowing) {
-//                Slider(value: $device.brightness, in: 1...255, step: 255 * 0.10)
-//                    .focusable(true)
-//                    .digitalCrownRotation($device.brightness, from: 1.0, through: 255.0, by: 1)
-//            }
-    }
-    
-    private var toolbar: some ToolbarContent {
-        ToolbarItem(placement: .bottomBar) {
-            HStack {
-                Spacer()
-                Button("Brightness", systemImage: "light.max") {
-                    brightnessSheetShowing.toggle()
-                }
-            }
-        }
     }
 }
 
