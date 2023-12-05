@@ -31,6 +31,7 @@ import SwiftUI
     
     var isOnline: Bool = false
     var isPoweredOn: Bool = false
+    var isSyncSend: Bool = false
     /// Brightness level from 1 - 255
     var brightness: Float = 0
     var color: String?
@@ -63,13 +64,13 @@ import SwiftUI
     func update(response: WLEDStateResponse) {
         self.isOnline = true
         self.isPoweredOn = response.state.on
+        self.isSyncSend = response.state.udp.send
         self.brightness = response.state.brightness
         self.color = response.state.segments.first?.color?.toHex()
         
         self.preset = self.presets.first(where: { $0.id == response.state.presetId.description })
     }
     
-    @MainActor
     func setOnOff(state: Bool) async {
         await self.api.setState(state)
     }
@@ -83,6 +84,7 @@ import SwiftUI
         presets: [WLEDPreset.Normalized]?,
         isOnline: Bool?,
         isPoweredOn: Bool?,
+        isSyncSend: Bool?,
         brightness: Float?,
         color: String?,
         preset: WLEDPreset.Normalized?
@@ -94,6 +96,7 @@ import SwiftUI
         self.presets = presets ?? []
         self.isOnline = isOnline ?? false
         self.isPoweredOn = isPoweredOn ?? false
+        self.isSyncSend = isSyncSend ?? false
         self.brightness = brightness ?? 0
         self.color = color
         self.preset = preset
@@ -110,6 +113,7 @@ import SwiftUI
             
             isOnline: true,
             isPoweredOn: wled.state.on,
+            isSyncSend: wled.state.udp.send,
             brightness: wled.state.brightness,
             color: wled.state.segments.first?.color?.toHex(),
             preset: nil
@@ -147,5 +151,25 @@ extension Device {
     func sendPreset() async {
         guard let preset else { return }
         await self.api.setPreset(preset)
+    }
+}
+
+extension Device {
+    static func exampleDevice() -> Device {
+        Device(
+            address: "192.168.178.113",
+            macAddress: nil,
+            port: nil,
+            name: nil,
+            presets: [
+                .init(name: "Normal", id: "1", color: nil)
+            ],
+            isOnline: true,
+            isPoweredOn: true,
+            isSyncSend: false,
+            brightness: 255,
+            color: nil,
+            preset: nil
+        )
     }
 }
