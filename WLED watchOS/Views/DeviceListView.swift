@@ -45,21 +45,7 @@ struct DeviceListView: View {
 
 #Preview {
     let container = DataController.previewContainer
-
-    let device = Device(
-        address: "192.168.178.113",
-        macAddress: nil,
-        port: nil,
-        name: nil,
-        presets: [
-            .init(name: "Normal", id: "1", color: nil)
-        ],
-        isOnline: true,
-        isPoweredOn: true,
-        brightness: 255,
-        color: nil,
-        preset: nil
-    )
+    let device = Device.exampleDevice()
     
     return List {
         DeviceListView(device: device)

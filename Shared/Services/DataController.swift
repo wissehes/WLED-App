@@ -15,18 +15,7 @@ class DataController {
             let config = ModelConfiguration(isStoredInMemoryOnly: true)
             let container = try ModelContainer(for: Device.self, configurations: config)
             
-            let device = Device(
-                address: "192.168.178.113",
-                macAddress: nil,
-                port: nil,
-                name: nil,
-                presets: [],
-                isOnline: true,
-                isPoweredOn: true,
-                brightness: 255,
-                color: nil,
-                preset: nil
-            )
+            let device = Device.exampleDevice()
             container.mainContext.insert(device)
             
             return container
