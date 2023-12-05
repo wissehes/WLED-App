@@ -10,12 +10,20 @@ import SwiftData
 
 @main
 struct WLED_AppApp: App {
+    let modelContainer: ModelContainer
+    
+    init() {
+        do {
+            modelContainer = try ModelContainer(for: Device.self)
+        } catch {
+            fatalError("Could not initialize ModelContainer: \(error)")
+        }
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .modelContainer(for: [
-                    Device.self
-                ])
+                .modelContainer(modelContainer)
         }
     }
 }
