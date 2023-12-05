@@ -18,16 +18,7 @@ struct ContentView: View {
         NavigationSplitView {
             List(selection: $selectedDevice) {
                 ForEach(devices) { device in
-                    HStack {
-                        Text(device.name)
-                            .bold()
-                        
-                        Spacer()
-                        
-                        // TODO: Make this toggle actually send the state
-                        Toggle("Device state", isOn: .constant(true))
-                            .labelsHidden()
-                    }
+                    DeviceListView(device: device)
                     .tag(device)
                     .onTapGesture {
                         selectedDevice = device
