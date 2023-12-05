@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89291E2C2B1F3A6900C32A48 /* DeviceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89291E2B2B1F3A6900C32A48 /* DeviceListView.swift */; };
 		892B04B72B1CBC8B00B5E4B7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B04B62B1CBC8B00B5E4B7 /* DataController.swift */; };
 		892B04BA2B1D214900B5E4B7 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 892B04B92B1D214900B5E4B7 /* Starscream */; };
 		892B04C52B1E574E00B5E4B7 /* WLED_watchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B04C42B1E574E00B5E4B7 /* WLED_watchOSApp.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		89291E2B2B1F3A6900C32A48 /* DeviceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListView.swift; sourceTree = "<group>"; };
 		892B04B62B1CBC8B00B5E4B7 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		892B04C22B1E574E00B5E4B7 /* WLED Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WLED Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		892B04C42B1E574E00B5E4B7 /* WLED_watchOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLED_watchOSApp.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				892B04E02B1E5B2C00B5E4B7 /* DeviceItemView.swift */,
+				89291E2B2B1F3A6900C32A48 /* DeviceListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 			files = (
 				892B04D62B1E585200B5E4B7 /* Device.swift in Sources */,
 				892B04C72B1E574E00B5E4B7 /* ContentView.swift in Sources */,
+				89291E2C2B1F3A6900C32A48 /* DeviceListView.swift in Sources */,
 				892B04D92B1E585200B5E4B7 /* WLEDPreset.swift in Sources */,
 				892B04DA2B1E585200B5E4B7 /* WLEDState.swift in Sources */,
 				892B04C52B1E574E00B5E4B7 /* WLED_watchOSApp.swift in Sources */,
