@@ -82,7 +82,7 @@ final class DiscoveryService {
     
     /// Connection update handler
     private func itemConnectionUpdatedHandler(_ state: NWConnection.State, name: String, connection: NWConnection) {
-        print("State update for \(name)")
+        print("State update for \(name): \(state)")
         // Make sure all values and cases are correct
         guard case .ready = state else { return }
         guard let endpoint = connection.currentPath?.remoteEndpoint else { return }
