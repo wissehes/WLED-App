@@ -17,7 +17,11 @@ struct DeviceWebView: View {
         WebView(url: device.url)
             .navigationTitle(device.name)
             .navigationBarTitleDisplayMode(.inline)
-            .onAppear { self.initWS() }
+            .task(id: device) {
+                // Reset connection if the device changes
+                self.session?.disconnect()
+                self.initWS()
+            }
             .onDisappear { self.session?.disconnect() }
     }
     
