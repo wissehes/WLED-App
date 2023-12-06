@@ -23,6 +23,7 @@ struct DiscoverDevicesSheet: View {
                         ProgressView()
                     }
                 }
+                .onAppear { discovery.start() }
         }
     }
     
