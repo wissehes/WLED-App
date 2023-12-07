@@ -12,6 +12,7 @@ struct DeviceItemView: View {
     @Environment(\.modelContext) private var modelContext
     
     @State private var device: Device
+    @State private var info: WLEDInfo?
     @State private var tab: Int = 1
     
     init(device: Device) {
@@ -43,43 +44,62 @@ struct DeviceItemView: View {
                     Label("Brightness", systemImage: "light.max")
                 }
             }
+            .navigationTitle(device.name)
             .tag(1)
             
-            NavigationStack {
-                List {
-                    Picker(selection: $device.preset) {
-                        Text("None").tag(nil as WLEDPreset.Normalized?)
-                        ForEach(device.presets) { preset in
-                            Text(preset.name)
-                                .tag(preset as WLEDPreset.Normalized?)
-                        }
-                        
-                    } label: {
-                        Label("Preset", systemImage: "list.bullet")
+            List {
+                Picker(selection: $device.preset) {
+                    Text("None").tag(nil as WLEDPreset.Normalized?)
+                    ForEach(device.presets) { preset in
+                        Text(preset.name)
+                            .tag(preset as WLEDPreset.Normalized?)
                     }
                     
-                    Toggle("Sync", systemImage: "arrow.triangle.2.circlepath", isOn: $device.isSyncSend)
+                } label: {
+                    Label("Preset", systemImage: "list.bullet")
                 }
-            }.tag(2)
-        }.navigationTitle(device.name)
-            .tabViewStyle(.carousel)
-            .containerBackground(background, for: .navigation)
-            .animation(.easeInOut, value: background)
-            .task { await device.update() }
-            .onChange(of: device.isPoweredOn) {
-                Task { await device.setOnOff(state: device.isPoweredOn) }
+                
+                Toggle("Sync", systemImage: "arrow.triangle.2.circlepath", isOn: $device.isSyncSend)
             }
-            .onChange(of: device.brightness) {
-                Task { await device.sendBrightness() }
+            .navigationTitle("Settings")
+            .tag(2)
+            
+            if let info {
+                DeviceInfoTabItem(info: info)
+                    .tag(3)
             }
-            .task(id: device.preset) {
-                await device.sendPreset()
+        }
+        .tabViewStyle(.carousel)
+        .containerBackground(background, for: .navigation)
+        .animation(.easeInOut, value: background)
+        .task { await self.load() }
+        .onChange(of: device.isPoweredOn) {
+            Task { await device.setOnOff(state: device.isPoweredOn) }
+        }
+        .onChange(of: device.brightness) {
+            Task { await device.sendBrightness() }
+        }
+        .onChange(of: device.preset) {
+            Task { await device.sendPreset() }
+        }
+        .onChange(of: device.isSyncSend) {
+            Task { await device.sendUDPSend() }
+        }
+    }
+    
+    @MainActor
+    private func load() async {
+        do {
+            let data = try await device.api.getInfo()
+            withAnimation {
+                self.info = data.info
             }
-            .task(id: device.isSyncSend) {
-                await device.sendUDPSend()
-            }
-//            .onChange(of: device.preset, handl)
-            // TODO: Send preset and UDP state update
+            
+            device.update(response: data)
+        } catch {
+            print("Loading failed: ")
+            print(error)
+        }
     }
 }
 
