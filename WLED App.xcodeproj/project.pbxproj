@@ -78,7 +78,7 @@
 		892B04C82B1E575000B5E4B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		892B04CB2B1E575000B5E4B7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		892B04D42B1E579B00B5E4B7 /* WLED Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WLED Watch App.entitlements"; sourceTree = "<group>"; };
-		892B04D52B1E57A700B5E4B7 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
+		892B04D52B1E57A700B5E4B7 /* info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.info; path = info.plist; sourceTree = "<group>"; };
 		892B04E02B1E5B2C00B5E4B7 /* DeviceItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceItemView.swift; sourceTree = "<group>"; };
 		894CECD62B1A917E004B3B57 /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		894CECD82B1A926E004B3B57 /* ChangeAppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAppIconView.swift; sourceTree = "<group>"; };
@@ -465,6 +465,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WLED watchOS/info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "WLED watchOS";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "WLED App uses this to communicate with your WLED devices.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "nl.wissehes.wled-swift-app";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -497,6 +498,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WLED watchOS/info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "WLED watchOS";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "WLED App uses this to communicate with your WLED devices.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "nl.wissehes.wled-swift-app";
 				LD_RUNPATH_SEARCH_PATHS = (
