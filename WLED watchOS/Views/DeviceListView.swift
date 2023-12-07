@@ -35,11 +35,6 @@ struct DeviceListView: View {
                 .contentTransition(.symbolEffect(.replace.downUp))
                 .animation(.easeInOut, value: iconColor)
                 .foregroundStyle(iconColor)
-            
-            Toggle("Device state", isOn: $device.isPoweredOn)
-                .labelsHidden()
-        }.onChange(of: device.isPoweredOn) {
-            Task { await device.setOnOff(state: device.isPoweredOn) }
         }
     }
 }
