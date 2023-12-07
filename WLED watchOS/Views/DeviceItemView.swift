@@ -72,6 +72,14 @@ struct DeviceItemView: View {
             .onChange(of: device.brightness) {
                 Task { await device.sendBrightness() }
             }
+            .task(id: device.preset) {
+                await device.sendPreset()
+            }
+            .task(id: device.isSyncSend) {
+                await device.sendUDPSend()
+            }
+//            .onChange(of: device.preset, handl)
+            // TODO: Send preset and UDP state update
     }
 }
 

@@ -152,6 +152,10 @@ extension Device {
         guard let preset else { return }
         await self.api.setPreset(preset)
     }
+    
+    func sendUDPSend() async {
+        await self.api.setUDPSend(self.isSyncSend)
+    }
 }
 
 extension Device {

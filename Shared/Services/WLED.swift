@@ -95,4 +95,21 @@ class WLED {
         
         await self.sendJSON(state: state)
     }
+    
+    /// Set the UDP send state
+    func setUDPSend(_ state: Bool) async {
+        let state: Parameters = [
+            "udpn": [
+                "send": state
+            ]
+        ]
+        
+        await self.sendJSON(state: state)
+    }
 }
+
+//extension WLED {
+//    class WSClient {
+//        
+//    }
+//}
