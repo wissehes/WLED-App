@@ -26,6 +26,8 @@ struct ContentView: View {
                     }
                 }
             }
+            .navigationTitle("WLED")
+            .navigationBarTitleDisplayMode(.large)
             .task {
                 await updateDevices()
             }
