@@ -10,10 +10,11 @@ import SwiftData
 
 struct DiscoverDevicesSheet: View {
     @Environment(\.dismiss) private var dismiss
-        
+    
     @State private var discovery = DiscoveryService()
     
     var body: some View {
+#if targetEnvironment(simulator)
         NavigationStack {
             List(discovery.devices, rowContent: AddDeviceItemView.init)
                 .navigationTitle("Discover")
@@ -25,6 +26,12 @@ struct DiscoverDevicesSheet: View {
                 }
                 .onAppear { discovery.start() }
         }
+#else
+        ContentUnavailableView(
+            "Use the app on your phone to add devices",
+            systemImage: "questionmark.circle"
+        )
+#endif
     }
     
     struct AddDeviceItemView: View {
@@ -36,7 +43,7 @@ struct DiscoverDevicesSheet: View {
         
         @Query private var devices: [Device]
         @Environment(\.modelContext) private var modelContext
-
+        
         var isAdded: Bool {
             devices.contains { $0.macAddress == device.macAddress }
         }
@@ -54,9 +61,9 @@ struct DiscoverDevicesSheet: View {
                 Button("Add", systemImage: buttonIcon) {
                     addDevice(self.device)
                 }
-                    .labelStyle(.iconOnly)
-                    .foregroundStyle(.accent)
-                    .disabled(isAdded)
+                .labelStyle(.iconOnly)
+                .foregroundStyle(.accent)
+                .disabled(isAdded)
             }
         }
         
