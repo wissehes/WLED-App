@@ -35,6 +35,7 @@
 		897AB7CC2B153CA000E3DC8F /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB7CB2B153CA000E3DC8F /* Device.swift */; };
 		8981280E2B1F67E100C79728 /* DiscoveryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897AB7C92B15337100E3DC8F /* DiscoveryService.swift */; };
 		898128122B1F682100C79728 /* DiscoverDevicesSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898128112B1F682100C79728 /* DiscoverDevicesSheet.swift */; };
+		899767E22B21F86200F4E45E /* DeviceInfoTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899767E12B21F86200F4E45E /* DeviceInfoTabItem.swift */; };
 		89BEF5D02B1626EC00C76A23 /* WLED.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5CF2B1626EC00C76A23 /* WLED.swift */; };
 		89BEF5D22B162CCB00C76A23 /* WLEDState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BEF5D12B162CCB00C76A23 /* WLEDState.swift */; };
 		89BEF5D52B167DE500C76A23 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 89BEF5D42B167DE500C76A23 /* Alamofire */; };
@@ -97,6 +98,7 @@
 		897AB7C92B15337100E3DC8F /* DiscoveryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryService.swift; sourceTree = "<group>"; };
 		897AB7CB2B153CA000E3DC8F /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		898128112B1F682100C79728 /* DiscoverDevicesSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverDevicesSheet.swift; sourceTree = "<group>"; };
+		899767E12B21F86200F4E45E /* DeviceInfoTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoTabItem.swift; sourceTree = "<group>"; };
 		89BEF5CE2B1625BC00C76A23 /* WLED App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WLED App.entitlements"; sourceTree = "<group>"; };
 		89BEF5CF2B1626EC00C76A23 /* WLED.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLED.swift; sourceTree = "<group>"; };
 		89BEF5D12B162CCB00C76A23 /* WLEDState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLEDState.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 		892B04DE2B1E58F700B5E4B7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				899767E02B21F84800F4E45E /* TabItems */,
 				892B04E02B1E5B2C00B5E4B7 /* DeviceItemView.swift */,
 				89291E2B2B1F3A6900C32A48 /* DeviceListView.swift */,
 				898128112B1F682100C79728 /* DiscoverDevicesSheet.swift */,
@@ -278,6 +281,14 @@
 				894CECD82B1A926E004B3B57 /* ChangeAppIconView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		899767E02B21F84800F4E45E /* TabItems */ = {
+			isa = PBXGroup;
+			children = (
+				899767E12B21F86200F4E45E /* DeviceInfoTabItem.swift */,
+			);
+			path = TabItems;
 			sourceTree = "<group>";
 		};
 		89BEF5DA2B16960A00C76A23 /* Device */ = {
@@ -409,6 +420,7 @@
 				892B04D92B1E585200B5E4B7 /* WLEDPreset.swift in Sources */,
 				892B04DA2B1E585200B5E4B7 /* WLEDState.swift in Sources */,
 				892B04C52B1E574E00B5E4B7 /* WLED_watchOSApp.swift in Sources */,
+				899767E22B21F86200F4E45E /* DeviceInfoTabItem.swift in Sources */,
 				892B04DB2B1E585200B5E4B7 /* DataController.swift in Sources */,
 				8981280E2B1F67E100C79728 /* DiscoveryService.swift in Sources */,
 				892B04D82B1E585200B5E4B7 /* WLED.swift in Sources */,
